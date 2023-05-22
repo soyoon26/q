@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Sono</a>
@@ -51,15 +50,10 @@
     </nav>
     <router-view/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-=======
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
->>>>>>> cdb19fe7099652db38516b4bfe754cbb1a066538
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
@@ -81,14 +75,6 @@ export default {
       this.$store.dispatch('logout')
       this.$router.push({ name: 'App' })
     },
-=======
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
->>>>>>> cdb19fe7099652db38516b4bfe754cbb1a066538
   }
 }
 </script>
@@ -100,20 +86,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-<<<<<<< HEAD
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-=======
   margin-top: 60px;
 }
->>>>>>> cdb19fe7099652db38516b4bfe754cbb1a066538
 </style>
