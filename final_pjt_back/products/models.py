@@ -1,5 +1,8 @@
 from django.db import models
+from django.conf import settings
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 # Create your models here.
 
 class DepositProducts(models.Model):
@@ -11,6 +14,10 @@ class DepositProducts(models.Model):
     join_member = models.TextField()
     join_way = models.TextField()
     spcl_cnd = models.TextField()
+    customers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='subscriped_products', null=True)
+
+    def __str__(self):
+        return self.fin_prdt_nm
 
 class DepositOptions(models.Model):
     fin_prdt_cd = models.IntegerField()
@@ -18,3 +25,6 @@ class DepositOptions(models.Model):
     intr_rate = models.FloatField()
     intr_rate2 = models.FloatField()
     save_trm = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.fin_prdt_cd} - {self.intr_rate_type_nm}"

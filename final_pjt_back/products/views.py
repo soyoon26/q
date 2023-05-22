@@ -83,3 +83,19 @@ def top_rate(request):
     deposit = DepositOptions.objects.order_by('-intr_rate').first()
     serializer = DepositOptionsSerializer(deposit)
     return JsonResponse(serializer.data)
+
+# 상품 가입
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def subscription(request, product_pk):
+    try:
+        product = DepositProducts.objects.get(pk=product_pk)
+    except DepositProducts.DoesNotExist:
+        return Response({'error': '상품을 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+    
+    if product.customers.filter(pk=request.user.pk).exists():
+        product.customers.remove(request.user)
+        return Response({'message': '상품 가입을 취소했습니다.'}, status=status.HTTP_200_OK)
+    else:
+        product.customers.add(request.user)
+        return Response({'message': '상품에 가입되었습니다.'}, status=status.HTTP_200_OK)
