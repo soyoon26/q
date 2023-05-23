@@ -1,64 +1,65 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sono</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <router-link :to="{ name: 'ProductsView' }">예금상품</router-link>&nbsp;&nbsp;
-            </li>
-            <li class="nav-item">
-              <router-link :to="{ name: 'ExchangeView' }">환율계산기</router-link>&nbsp;&nbsp;
-            </li>
-            <li class="nav-item">
-              <router-link :to="{ name: 'ArticleView' }">자유게시판</router-link>&nbsp;&nbsp;
-            </li>
-            <li class="nav-item">
-            </li>
-          </ul>
-          <span class="navbar-text">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <span>유저네임 : {{ this.$store.state.username }}</span>&nbsp;&nbsp;
+  <div id="app" class="nanum">
+    <div class="fixed-top" style="background-color: white;">
+      <router-link :to="{ name: 'home' }"><img src="@/assets/mainlogo.png" alt="homelogo" style="height: 70px; margin-top: 20px; margin-bottom: 10px;"></router-link>
+      <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nanum">
               <li class="nav-item">
-                <router-link :to="{ name: 'LogInView' }">로그인</router-link>&nbsp;&nbsp;
+                <router-link :to="{ name: 'home' }" class="nav-link">&nbsp;&nbsp;홈&nbsp;&nbsp;</router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="{ name: 'SignUpView' }">회원가입</router-link>&nbsp;&nbsp;
+                <router-link :to="{ name: 'BankView' }" class="nav-link">&nbsp;&nbsp;주변 은행 찾기&nbsp;&nbsp;</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{ name: 'ProductsView' }" class="nav-link">&nbsp;&nbsp;금융 상품&nbsp;&nbsp;</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{ name: 'ExchangeView' }" class="nav-link">&nbsp;&nbsp;환율 계산기&nbsp;&nbsp;</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link :to="{ name: 'ArticleView' }" class="nav-link">&nbsp;&nbsp;자유게시판&nbsp;&nbsp;</router-link>
+              </li>
+              <li class="nav-item">
               </li>
             </ul>
-          </span>
+            <span class="navbar-text nanum">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center;">
+                  <span>안녕하세요, {{ this.$store.state.username }}&nbsp;님</span>&nbsp;&nbsp;
+                  <router-link :to="{name:'ProfileView'}" class="nav-link">내 프로필</router-link>
+                    <span class="nav-item">
+                      <a @click="logout" class="nav-link">로그아웃</a>
+                    </span>
+                </span>
+                <span v-else style="padding-right: 0.5rem; display: flex; align-items: center;">
+                  <router-link :to="{ name: 'LogInView' }" class="nav-link" style="margin-right: 0.5rem;">로그인</router-link>
+                  <router-link :to="{ name: 'SignUpView' }" class="nav-link">회원가입</router-link>
+                </span>
+              </ul>
+            </span>
+          </div>
         </div>
-      </div>
-    </nav>
-    <nav>
-      <span v-if="$store.state.isLogin"  style="padding-right:0.5rem">
-        <a href="" @click="logout">Logout | </a>
-        <!-- <router-link :to="{name:'profile', params:{username:this.$store.state.user.username}}">My profie</router-link> -->
-      </span>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link :to="{ name: 'ArticleView' }">Board</router-link> | 
-      <router-link :to="{ name: 'SignUpView' }">SignUpPage</router-link> | 
-      <router-link :to="{ name: 'LogInView' }">LogInPage</router-link> |
-      <router-link :to="{ name: 'ProductsView' }">ProductsPage</router-link> |
-      <router-link :to="{ name: 'ExchangeView' }">ExchangePage</router-link>
-      <router-link :to="{ name: 'BankView' }">BankPage</router-link>
-    </nav>
-    <router-view/>
+      </nav>
+    </div>
+    <router-view style="margin-top: 300px;"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import 'bootstrap'; // Bootstrap JavaScript 파일 불러오기
+import HomeView from '@/views/HomeView.vue'
 
 export default {
   name: 'App',
   components : {
+    HomeView
   },
   data(){
     return {
@@ -86,6 +87,25 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+@font-face {
+  font-family: 'NanumSquareNeo-cBd';
+  src: url('@/assets/NanumSquareNeo-cBd.ttf');
+}
+
+.nanum {
+  font-family: 'NanumSquareNeo-cBd';
+}
+
+.navbar.fixed-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar .nav-link {
+  color: inherit; /* 링크의 기본 색상 상속 */
+  text-decoration: none; /* 밑줄 제거 */
 }
 </style>
