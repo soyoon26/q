@@ -21,6 +21,7 @@ export default new Vuex.Store({
     comments: [],
     products: [],
     token: null,
+    isSub: false,
     depositProduct: {
       isSubscribed: false,  //상품 저장 상태 
     },
@@ -91,12 +92,13 @@ export default new Vuex.Store({
       console.log(this.isLogin,'로그인됐는지, 여기가 마지막?')
       // this.$cookies.set('token', token)
     },
-    SET_SUB_STATUS(state, isSubscribed) {
-      state.depositProduct.isSubscribed = isSubscribed;
+    SET_SUB_STATUS(state, isSub) {
+      state.isSub = isSub;
+      console.log(state.isSub,'제발한번만나오게해줘')
     },
-    SET_USER_SUB_STATUS(state, isSubscribed) {
-      state.user.isSubscribed = isSubscribed;
-    },
+    // SET_USER_SUB_STATUS(state, isSubscribed) {
+    //   state.user.isSubscribed = isSubscribed;
+    // },
     SAVE_USERID(state, userid) {
       state.userid = userid;
       console.log(userid)
@@ -104,6 +106,43 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    checkSub({ commit, state }) {
+      console.log('안나올시자결',state.token)
+      const ut = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${state.token}`,
+        },
+      };
+      return axios
+        .get(`${API_URL}/products/subscribed-products/`,ut)
+        .then((response) => {
+          console.log('구독확인하러감')
+          console.log(response)
+          console.log('이제부터진짜')
+          const ids = response.data.map((item) => item.id);
+          console.log(ids);
+          // if (response.status === 200) {
+          //   context.commit('SET_SUB_STATUS', true);
+          //   context.commit('SET_USER_SUB_STATUS', true);
+          // }
+          const productIdCheck = state.productId; // 상태에서 productId 가져오기
+          
+      if (ids.includes(productIdCheck)) {
+        commit('SET_SUB_STATUS', true); // productId가 존재할 경우 isSub을 True로 변경
+      } else {
+        commit('SET_SUB_STATUS', false); // productId가 존재하지 않을 경우 isSub을 False로 변경
+      }
+      
+      // if (response.status === 200) {
+      //   context.commit('SET_USER_SUB_STATUS', true);
+      // }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+        
+    },
     getArticles(context) {
       axios({
         method: 'get',

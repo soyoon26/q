@@ -5,18 +5,19 @@
       <hr>
       <h3>공시제출월이 필요</h3>
 
-      <p>공시제출월 : {{ product.kor_co_nm }}</p>
+      <p>공시제출월 : {{ product.dcls_month }}</p>
       <p>은행이름 : {{ product.kor_co_nm }}</p>
       <p>예금이름 : {{ product.fin_prdt_nm }}</p>
       <p>가입기간 : {{ product.etc_note }}</p>
       <p>가입대상 : {{ product.join_member }}</p>
       <p>가입방법 : {{ product.join_way }}</p>
+      <p> {{product.spcl_cnd}} </p>
       <p> 사이트 이동 : {{  }}</p> #이동안되는 링크
       <p> 사이트 이동 : {{  }}</p> 
       
 
       <button @click="forSubscription">
-          {{ isUserSubscribed ? '가입 취소' : '상품 가입' }}
+          {{ isSubscribed ? '즐겨찾기 취소' : '상품 즐겨찾기' }}
         </button>
   
     </div>
@@ -31,11 +32,11 @@
   
       computed: {
       isSubscribed() {
-        return this.$store.state.depositProduct.isSubscribed;
+        return this.$store.state.isSub;
           },
-      isUserSubscribed() {
-        return this.$store.state.user.isSubscribed;
-          },
+    //   isUserSubscribed() {
+    //     return this.$store.state.user.isSubscribed;
+    //       },
       },
       data() {
           return {
@@ -44,7 +45,7 @@
       }, // 끝
       created() {
           this.getProductDetail()
-          // this.checkUserSubscription();
+          this.checkSubscription()
       }, //끝
       methods: {
           getProductDetail() {
@@ -56,12 +57,24 @@
               console.log(res)
               this.product = res.data
               this.$store.state.productId = this.product.id
-              console.log('여기보세요',this.$store.state.productId)
+              console.log('상품ID',this.$store.state.productId)
           })
           .catch((err) => {
               console.log(err)
           })
           },
+          checkSubscription() {
+            console.log('체크합니다-.-')
+            this.$store.dispatch('checkSub')
+            // const cfg = {
+            // headers: {
+            // 'Content-Type': 'application/json',
+            // 'Authorization': `Token ${this.$store.state.token}`,
+            //     },
+            // }
+            // axios.get(`${API_URL}/products/subscribed-products/`, null, cfg)
+
+            },
           forSubscription() {
             const Config = {
             headers: {
@@ -70,9 +83,14 @@
             },
             };
             axios.post(`${API_URL}/products/${this.$route.params.id}/subscription/`, null, Config)
-          .then((res) => {
-              console.log(res.message) //가입메세지  
-          })
+            .then((res) => {
+                console.log('이게 왜안나옴?')
+              console.log(res.data.message) //가입메세지  
+              alert(res.data.message);
+              this.checkSubscription()
+              this.isSubscribed = !this.isSubscribed;
+              console.log('다시 확인')
+            })
           },
       }
   }

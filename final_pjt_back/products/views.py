@@ -85,8 +85,8 @@ def deposit_products_detail(request, pk):
 
 @api_view(['GET'])
 def deposit_product_options(request, fin_prdt_cd):
-    deposit = DepositProducts.objects.get(fin_prdt_cd=fin_prdt_cd)
-    serializer = DepositProductsSerializer(deposit)
+    deposit = DepositOptions.objects.get(fin_prdt_cd=fin_prdt_cd)
+    serializer = DepositOptionsSerializer(deposit)
     return JsonResponse(serializer.data)
 
 @api_view(['GET'])

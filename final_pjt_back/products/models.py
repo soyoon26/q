@@ -6,6 +6,7 @@ User = get_user_model()
 # Create your models here.
 
 class DepositProducts(models.Model):
+    
     fin_prdt_cd = models.TextField(unique=True)
     kor_co_nm = models.TextField()
     fin_prdt_nm = models.TextField()
@@ -20,7 +21,6 @@ class DepositProducts(models.Model):
         return self.fin_prdt_nm
 
 class DepositOptions(models.Model):
-    dcls_month = models.TextField()
     fin_co_no = models.TextField()
     fin_prdt_cd = models.TextField()
     intr_rate_type = models.CharField(max_length=100)
