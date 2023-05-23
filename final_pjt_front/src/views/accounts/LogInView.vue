@@ -26,21 +26,22 @@ export default {
   name: 'LoginView',
   data() {
     return {
+      userid: null,
       username: null,
       password: null,
     }
   },
   methods: {
     login() {
+      // const userid = this.userid
       const username = this.username
       const password = this.password
+      console.log(this.userid)
 
       const payload = {
         username, password
       }
-
       this.$store.dispatch('login', payload)
-
     }
   }
 }
