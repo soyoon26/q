@@ -16,20 +16,8 @@ from rest_framework.permissions import IsAuthenticated
 
 BASE_URL = 'http://finlife.fss.or.kr/finlifeapi/'
 
-
-# @api_view(['GET'])
-# def api_test(request):
-#     URL = BASE_URL + 'depositProductsSearch.json'
-#     params = {
-#         'auth': settings.API_KEY,
-#         'topFinGrpNo': '020000',
-#         'pageNo': 1
-#     }
-#     response = requests.get(URL, params=params).json()
-#     return JsonResponse({ 'response': response })
-
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def save_deposit_products(request):
     URL = BASE_URL + 'depositProductsSearch.json'
     params = {
@@ -45,7 +33,30 @@ def save_deposit_products(request):
         return JsonResponse({ 'status': 'success' })
     else:
         return JsonResponse({ 'status': 'fail', 'message': serializer.errors })
-    
+
+@api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+def save_deposit_options(request):
+    URL = BASE_URL + 'depositProductsSearch.json'
+    params = {
+        'auth': settings.PRODUCTS_API_KEY,
+        'topFinGrpNo': '020000',
+        'pageNo': 1,
+    }
+    try:
+        response = requests.get(URL, params=params).json()
+        data = response['result']['optionList']  # 응답 데이터에서 optionList 가져오기
+    except Exception as e:
+        return JsonResponse({'status': 'fail', 'message': str(e)})  # 응답을 정상적으로 받지 못한 경우 에러 메시지 반환
+
+    if data:  # 응답 데이터가 존재할 경우에만 직렬화 및 저장
+        serializer = DepositOptionsSerializer(data=data, many=True)
+
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return JsonResponse({'status': 'success'})
+        return JsonResponse({'status': 'fail', 'message': serializer.errors})
+
 @api_view(['GET', 'POST'])
 def deposit_products(request):
     if request.method == 'GET':
@@ -95,7 +106,7 @@ def subscription(request, product_pk):
     
     if product.customers.filter(pk=request.user.pk).exists():
         product.customers.remove(request.user)
-        return Response({'message': '상품 가입을 취소했습니다.'}, status=status.HTTP_200_OK)
+        return Response({'message': '상품을 즐겨찾기에서 삭제했습니다.'}, status=status.HTTP_200_OK)
     else:
         product.customers.add(request.user)
-        return Response({'message': '상품에 가입되었습니다.'}, status=status.HTTP_200_OK)
+        return Response({'message': '상품을 즐겨찾기에 추가했습니다.'}, status=status.HTTP_200_OK)
