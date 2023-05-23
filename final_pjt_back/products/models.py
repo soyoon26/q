@@ -20,11 +20,14 @@ class DepositProducts(models.Model):
         return self.fin_prdt_nm
 
 class DepositOptions(models.Model):
-    fin_prdt_cd = models.IntegerField()
+    dcls_month = models.TextField()
+    fin_co_no = models.TextField()
+    fin_prdt_cd = models.TextField()
+    intr_rate_type = models.CharField(max_length=100)
     intr_rate_type_nm = models.CharField(max_length=100)
-    intr_rate = models.FloatField()
+    save_trm = models.TextField()
+    intr_rate = models.FloatField(null=True)
     intr_rate2 = models.FloatField()
-    save_trm = models.IntegerField()
 
     def __str__(self):
         return f"{self.fin_prdt_cd} - {self.intr_rate_type_nm}"
