@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
 import router from '../router'
@@ -14,7 +13,7 @@ export default new Vuex.Store({
     createPersistedState(),
   ],
   state: {
-    user_id: null,
+    userid: null,
     username: null,
     isLogin: false,
     articles: [],
@@ -22,6 +21,14 @@ export default new Vuex.Store({
     comments: [],
     products: [],
     token: null,
+    depositProduct: {
+      isSubscribed: false,  //상품 저장 상태 
+    },
+    user: {
+      isSubscribed: false,
+    },
+    productId : null,
+  
   },
   getters: {
     isLogin(state) {
@@ -48,30 +55,52 @@ export default new Vuex.Store({
       state.comments = comments
     }, // 댓글 목록 업데이트 반영하기
     // signup & login -> 완료하면 토큰 발급
+    // SIGN_UP(state, token) {
+    //   state.token = localStorage.getItem('jwt1')
+    //   console.log(state.token,'이게 나와야 됨')
+    //   state.isLogin = true
+    //   state.username = username.value
+    //   router.push({ name: 'App' })
+    // },
     SIGN_UP(state, token) {
-      state.token = localStorage.getItem('jwt1')
-      state.isLogin = true
-      state.username = username.value
-      router.push({ name: 'App' })
+      state.token = token; // 가져온 토큰을 state.token에 저장
+      console.log(state.token, '이게 나와야 됨');
+      state.isLogin = true;
+      state.username = username.value;
+      router.push({ name: 'App' });
     },
     LOGOUT(state) {
       state.isLogin = false
+      state.username = null
       state.username = null
     },
     SAVE_TOKEN(state, payload) {
       // state.token = token //token 저장
       state.token = payload.token
+      state.userid = payload.userid
       state.username = payload.username
       console.log(state.token)
       localStorage.setItem('jwt', state.token) // 이걸 저장
       // state.token = localStorage.getItem('jwt')
       state.isLogin = true
-      state.user_id = payload.user_id
+      // state.user_id = payload.user_id
       // state.username = payload.username.value
       console.log(state.token)
       console.log(state.username, '썅 ㅋㅋ')
       router.push({ name: 'App' }) // store/index.js $router 접근 불가 -> import를 해야함
-      console.log(this.isLogin)
+      console.log(this.isLogin,'로그인됐는지, 여기가 마지막?')
+      // this.$cookies.set('token', token)
+    },
+    SET_SUB_STATUS(state, isSubscribed) {
+      state.depositProduct.isSubscribed = isSubscribed;
+    },
+    SET_USER_SUB_STATUS(state, isSubscribed) {
+      state.user.isSubscribed = isSubscribed;
+    },
+    SAVE_USERID(state, userid) {
+      state.userid = userid;
+      console.log(userid)
+      console.log('나에게과분한페어')
     },
   },
   actions: {
@@ -163,12 +192,11 @@ export default new Vuex.Store({
           console.log(err)
         })
     },
-    signup({ commit }, payload) {
-      const username = payload.username
-      const password1 = payload.password1
-      const password2 = payload.password2
-      // const password2 = payload.password2
-
+    signup({ commit, state }, payload) {
+      const username = payload.username;
+      const password1 = payload.password1;
+      const password2 = payload.password2;
+    
       axios({
         method: 'post',
         url: `${API_URL}/accounts/signup/`,
@@ -179,55 +207,139 @@ export default new Vuex.Store({
         },
       })
         .then((res) => {
-          console.log(res)
-          commit('SIGN_UP', res.data.key)
-        }) // store에 저장해야 여러군데에서 token을 쓸 수 있음
-        .catch(error => {
-          // 오류 응답 처리
-          if (error.response && error.response.data && error.response.data.non_field_errors) {
-            const errorMessages = error.response.data.non_field_errors;
-            // 알림창으로 오류 메시지 표시
-            alert(errorMessages.join('\n'));
-          }
+          console.log(res);
+          commit('SIGN_UP', res.data.key);
+    
+          const userToken = {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${res.data.key}`,
+            },
+          };
+    
+          return axios
+            .get(`${API_URL}/accounts/user/`, userToken)
+            .then((res) => {
+              console.log(res);
+              // Extract userId from the response data based on its structure
+              const userId = res.data.pk;
+              commit('SAVE_USERID', userId);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-        // .catch((err) => {
-        //   console.log('왜')
-        //   console.log(axios.data)
-        //   console.log(err)
-        // })
     },
-    login({ commit }, payload) {
-      const username = payload.username
-      const password = payload.password
-      console.log(username)
+    login({ commit, state }, payload) {
+      const userid = payload.userid;
+      const username = payload.username;
+      const password = payload.password;
+      console.log(userid, 'userid 출력');
+      console.log(username);
       axios({
         method: 'post',
         url: `${API_URL}/accounts/login/`,
         data: {
+          userid,
           username,
           password,
         },
       })
         .then((res) => {
-          console.log('이게 진짜', res.data)
-          const token = res.data.key
-          commit('SAVE_TOKEN', { token, username })
-          console.log(username)
-          console.log('흠냐릥')
-
-          console.log('_________')
+          console.log('이게 진짜', res.data);
+          const token = res.data.key;
+          commit('SAVE_TOKEN', { token, username });
+          console.log(username);
+          console.log('흠냐릥');
+          console.log('_________');
+          const userToken = {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Token ${state.token}`,
+            },
+          };
+          return axios
+            .get(`${API_URL}/accounts/user/`, userToken)
+            .then((res) => {
+              console.log(res)
+              console.log('화수목힘내좌',res.data.pk)
+              const userId = res.data.pk;
+              commit('SAVE_USERID', userId);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
-
-        //   commit('SAVE_TOKEN', { key: res.data.key, userId: user_id } )
-        //   console.log(username)
-        // })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err);
+        });
     },
+    
     logout({ commit }) {
       localStorage.removeItem('jwt')
       commit('LOGOUT')
     },
+    subscribeProduct(context) {
+      const state = context.state; // 상태 객체에 접근
+      console.log(state.token)
+      console.log('도착',`${API_URL}/products/${state.productId}/subscription/`);
+      const usertoken = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${state.token}`,
+        },
+      };
+      return axios
+        .post(`${API_URL}/products/${state.productId}/subscription/`,null,usertoken)
+        .then((response) => {
+          console.log('여기가 중간')
+          console.log(response)
+          if (response.status === 200) {
+            context.commit('SET_SUB_STATUS', true);
+            context.commit('SET_USER_SUB_STATUS', true);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    cancelSubscription(context) {
+      console.log('취소store넘어옴')
+      console.log(context.state)
+      const state = context.state; // 상태 객체에 접근
+      
+      return axios
+        .post(`${API_URL}/products/${state.productId}/subscription/`)
+        .then((response) => {
+          if (response.status === 200) {
+            context.commit('SET_SUB_STATUS', false);
+            context.commit('SET_USER_SUB_STATUS', false);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    // checkUserSubscription({ commit }) {
+    //   return axios
+    //     .get(`/api/subscription/${productPk}/check/`)
+    //     .then((response) => {
+    //       if (response.status === 200) {
+    //         const isSubscribed = response.data.is_subscribed;
+    //         commit('setUserSubscriptionStatus', isSubscribed);
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
+  // },
+    
   },
+  
 
   modules: {},
 })
