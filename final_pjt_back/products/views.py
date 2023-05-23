@@ -29,7 +29,7 @@ BASE_URL = 'http://finlife.fss.or.kr/finlifeapi/'
 #     return JsonResponse({ 'response': response })
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def save_deposit_products(request):
     URL = BASE_URL + 'depositProductsSearch.json'
     params = {
@@ -86,7 +86,7 @@ def top_rate(request):
 
 # 상품 가입
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def subscription(request, product_pk):
     try:
         product = DepositProducts.objects.get(pk=product_pk)
