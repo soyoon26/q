@@ -1,4 +1,4 @@
-![](file://C:\Users\SSAFY\AppData\Roaming\marktext\images\2023-05-23-11-24-13-image.png?msec=1684808653538)
+![그림1](https://github.com/FinanceProduct/final_pjt/assets/116616569/95aa40db-b979-45c3-99f2-a580ca1776bb)
 
 ## Mission
 
