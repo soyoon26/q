@@ -15,7 +15,6 @@ class Board(models.Model):
     def __str__(self):
         return self.title
 
- 
 class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
     board = models.ForeignKey(Board, on_delete=models.CASCADE, related_name='comments')

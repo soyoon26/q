@@ -31,12 +31,13 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center;">
                   <span>안녕하세요, {{ this.$store.state.username }}&nbsp;님</span>&nbsp;&nbsp;
-                  <router-link :to="{name:'ProfileView'}" class="nav-link">내 프로필</router-link>
+                  <router-link :to="{name:'ProfileView'}" class="nav-link">내 프로필</router-link>&nbsp;&nbsp;
                     <span class="nav-item">
                       <a @click="logout" class="nav-link">로그아웃</a>
                     </span>
                 </span>
                 <span v-else style="padding-right: 0.5rem; display: flex; align-items: center;">
+                  <router-link :to="{ name: 'GoogleView' }" class="nav-link" style="margin-right: 0.5rem;">Google 로그인</router-link>
                   <router-link :to="{ name: 'LogInView' }" class="nav-link" style="margin-right: 0.5rem;">로그인</router-link>
                   <router-link :to="{ name: 'SignUpView' }" class="nav-link">회원가입</router-link>
                 </span>

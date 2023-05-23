@@ -44,16 +44,18 @@ export default {
   },
   methods: {
     fetchBoards() {
-      axios.get(`${API_URL}/boards/${ this.$route.params.id }/`)
-        .then(response => {
-          this.boards = response.data;
-          console.log(response.data);
-          console.log('밑에는');
-          console.log(this.boards);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      if (this.boardId) {
+        axios.get(`${API_URL}/boards/${this.boardId}/`)
+          .then(response => {
+            this.boards = response.data;
+            console.log(response.data);
+            console.log('밑에는');
+            console.log(this.boards);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
     },
     editBoard() {
       this.$router.push({

@@ -13,6 +13,7 @@ import ExchangeView from '@/views/ExchangeView'
 import ArticleEdit from '@/components/ArticleEdit'
 import CommentEdit from '@/components/CommentEdit'
 import BankView from '@/views/BankView'
+import GoogleView from '@/views/login/GoogleView'
 
 Vue.use(VueRouter)
 
@@ -93,6 +94,11 @@ const routes = [
     path: '/bank',
     name: 'BankView',
     component: BankView
+  },
+  {
+    path: '/google',
+    name: "GoogleView",
+    component: GoogleView
   },
 ]
 
