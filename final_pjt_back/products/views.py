@@ -110,3 +110,12 @@ def subscription(request, product_pk):
     else:
         product.customers.add(request.user)
         return Response({'message': '상품을 즐겨찾기에 추가했습니다.'}, status=status.HTTP_200_OK)
+    
+@api_view(['GET'])
+def subscribed_products(request):
+    if request.method == 'GET':
+        user = request.user  # 현재 인증된 사용자
+        subscribed_products = user.subscriped_products.all()  # 현재 사용자가 구독한 상품들
+
+        serializer = DepositProductsSerializer(subscribed_products, many=True)
+        return Response(serializer.data)
