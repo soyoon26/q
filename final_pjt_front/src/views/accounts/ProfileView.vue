@@ -2,28 +2,55 @@
   <div>
     <h2>작성한 글</h2>
     <ul>
-      <li v-for="board in boards" :key="board.id">
+      <li v-for="(board, index) in userBoards" :key="`board_${index}`">
         <h3>{{ board.title }}</h3>
-        <p>{{ board.content }}</p>
+        <router-link
+          :to="{
+              name: 'DetailView',
+              params: { id: board.id }
+          }"
+          >
+          <p>글 보기</p>
+        
+        </router-link>
       </li>
     </ul>
 
     <h2>작성한 댓글</h2>
     <ul>
-      <li v-for="comment in comments" :key="comment.id">
+      <li v-for="(comment, index) in userComments" :key="`comment_${index}`">
         <p>{{ comment.content }}</p>
+        <router-link
+          :to="{
+              name: 'DetailView',
+              params: { id: comment.board }
+          }"
+          >
+          <p>글 보기</p>
+        
+        </router-link>
       </li>
     </ul>
 
-    <h2>구독한 상품</h2>
+    <h2>즐겨찾기 된 금융 상품</h2>
     <ul>
-      <li v-for="product in products" :key="product.id">
+      <li v-for="(product, index) in userProducts" :key="`product_${index}`">
         <h3>{{ product.fin_prdt_nm }}</h3>
         <p>{{ product.intr_rate }}</p>
+        <router-link
+          :to="{
+              name: 'ProductDetailView',
+              params: { id: product.id }
+          }"
+          >
+          <p>바로가기</p>
+        
+        </router-link>
       </li>
     </ul>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -36,88 +63,83 @@ export default {
       boards: [],
       comments: [],
       products: [],
+      currentUser: null,
     };
   },
   mounted() {
-    this.getUserBoards()
-
-    this.getUserComments()
-
-    this.getUserProducts()
-
-    this.getCurrentUser()
+    this.getCurrentUser();
+    this.getUserData();
   },
   methods: {
-    getUserBoards() {
-      axios({
-        method: 'get',
-        url: `${API_URL}/boards/`,
+    getUserData() {
+      const headers = {
         headers: {
-          Authorization: `Token ${this.$store.state.token}`, // 토큰 가져오기
+          Authorization: `Token ${this.$store.state.token}`,
         },
-      })
+      };
+
+      axios.get(`${API_URL}/boards/`, headers)
         .then((res) => {
           console.log(res);
           this.boards = res.data;
+          this.boards = this.boards.filter((board) => board.author_name === this.currentUser.name);
         })
         .catch((err) => {
           console.log(err);
         });
-    },
-    getUserComments() {
-      axios({
-        method: 'get',
-        url: `${API_URL}/boards/comments/`,
-        headers: {
-          Authorization: `Token ${this.$store.state.token}`, // 토큰 가져오기
-        },
-      })
+
+      axios.get(`${API_URL}/boards/comments/`, headers)
         .then((res) => {
           console.log(res);
           this.comments = res.data;
+          this.comments = this.comments.filter((comment) => comment.author === this.currentUser.name);
         })
         .catch((err) => {
           console.log(err);
         });
-    },
-    getUserProducts() {
-      axios({
-        method: 'get',
-        url: `${API_URL}/products/deposit-products/`,
-        headers: {
-          Authorization: `Token ${this.$store.state.token}`, // 토큰 가져오기
-        },
-      })
+
+        axios.get(`${API_URL}/products/deposit-products/`, headers)
         .then((res) => {
           console.log(res);
           this.products = res.data;
+          this.products = this.products.filter((product) => product.customers.includes(this.currentUser.id))
         })
         .catch((err) => {
           console.log(err);
         });
     },
     getCurrentUser() {
-      // 현재 로그인한 사용자 정보 반환
-      const userid = this.$store.state.userid
-      const username = this.$store.state.username
-      console.log(userid, username)
-      return { id: userid, name: username };
+      const userid = this.$store.state.userid;
+      const username = this.$store.state.username;
+      console.log(userid, username);
+      this.currentUser = { id: userid, name: username };
     },
   },
   computed: {
     userBoards() {
-      // 현재 로그인한 사용자가 작성한 글만 필터링
-      return this.boards.filter((board) => board.author === this.getCurrentUser().id);
+      if (this.currentUser) {
+        return this.boards.filter((board) => board.author_name === this.currentUser.name);
+      } else {
+        return [];
+      }
     },
     userComments() {
-      // 현재 로그인한 사용자가 작성한 댓글만 필터링
-      return this.comments.filter((comment) => comment.author === this.getCurrentUser().id);
+      if (this.currentUser) {
+        return this.comments.filter((comment) => comment.author === this.currentUser.name);
+      } else {
+        return [];
+      }
     },
     userProducts() {
-      // 현재 로그인한 사용자가 구독한 상품만 필터링
-      console.log("필터링되나")
-      return this.products.filter((product) => product.customers.includes(this.getCurrentUser().id));
+      if (this.currentUser) {
+        return this.products.filter((product) => product.customers.includes(this.currentUser.id));
+      } else {
+        return [];
+      }
     },
   },
 };
 </script>
+
+
+
