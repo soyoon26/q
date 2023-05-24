@@ -1,51 +1,67 @@
 <template>
-  <div>
+  <div class="nanum">
     <h2>작성한 글</h2>
     <ul>
-      <li v-for="(board, index) in userBoards" :key="`board_${index}`">
-        <h3>{{ board.title }}</h3>
-        <router-link
-          :to="{
-              name: 'DetailView',
-              params: { id: board.id }
-          }"
+      <li v-for="(board, index) in userBoards" :key="`board_${index}`" class="item">
+        <div class="item-content">
+          <h4>{{ board.title }}</h4>
+        </div>
+        <div class="item-action">
+          <router-link
+            :to="{
+                name: 'DetailView',
+                params: { id: board.id }
+            }"
+            class="link"
           >
-          <p>글 보기</p>
-        
-        </router-link>
+            바로가기
+          </router-link>
+        </div>
       </li>
     </ul>
-
+    <hr>
+    <br>
     <h2>작성한 댓글</h2>
+    <hr>
     <ul>
-      <li v-for="(comment, index) in userComments" :key="`comment_${index}`">
-        <p>{{ comment.content }}</p>
-        <router-link
-          :to="{
-              name: 'DetailView',
-              params: { id: comment.board }
-          }"
+      <li v-for="(comment, index) in userComments" :key="`comment_${index}`" class="item">
+        <div class="item-content">
+          <h4>{{ comment.content }}</h4>
+        </div>
+        <div class="item-action">
+          <router-link
+            :to="{
+                name: 'DetailView',
+                params: { id: comment.board }
+            }"
+            class="link"
           >
-          <p>글 보기</p>
-        
-        </router-link>
+            바로가기
+          </router-link>
+        </div>
       </li>
     </ul>
-
+    <hr>
+    <br>
     <h2>즐겨찾기 된 금융 상품</h2>
+    <hr>
     <ul>
-      <li v-for="(product, index) in userProducts" :key="`product_${index}`">
-        <h3>{{ product.fin_prdt_nm }}</h3>
-        <p>{{ product.intr_rate }}</p>
-        <router-link
-          :to="{
-              name: 'ProductDetailView',
-              params: { id: product.id }
-          }"
+      <li v-for="(product, index) in userProducts" :key="`product_${index}`" class="item">
+        <div class="item-content">
+          <h4>{{ product.fin_prdt_nm }}</h4>
+          <p>{{ product.intr_rate }}</p>
+        </div>
+        <div class="item-action">
+          <router-link
+            :to="{
+                name: 'ProductDetailView',
+                params: { id: product.id }
+            }"
+            class="link"
           >
-          <p>바로가기</p>
-        
-        </router-link>
+            바로가기
+          </router-link>
+        </div>
       </li>
     </ul>
   </div>
@@ -141,5 +157,31 @@ export default {
 };
 </script>
 
+<style>
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
+.item-content {
+  flex: 1;
+}
+
+.link {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.link:hover {
+  background-color: #0056b3;
+}
+</style>
 

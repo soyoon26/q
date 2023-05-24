@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>ProductsView</h1>
+    <div class="nanum">
+        <h1>금융 상품</h1>
 
         <hr>
         <ProductsList/>

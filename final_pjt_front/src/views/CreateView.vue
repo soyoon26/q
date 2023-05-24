@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="nanum">
     <h1>게시글 작성</h1>
-    <form @submit.prevent="createArticle">
+    <form @submit.prevent="createArticle" style="margin: 30px">
       <!-- form 기본 이벤트 동작 막기 -->
-      <label for="title">제목 : </label>
+      <label for="title">제목</label>
       <input type="text" id="title" v-model.trim="title"><br>
-      <label for="content">내용 : </label>
+      <label for="content">내용</label>
       <textarea id="content" cols="30" rows="10" v-model="content"></textarea><br>
-      <input type="submit" id="submit">
+      <input type="submit" id="submit" class="btn btn-primary">
     </form>
   </div>
 </template>

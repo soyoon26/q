@@ -1,13 +1,34 @@
 <template>
   <div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control search-input" v-model="keyword" placeholder="장소를 검색하세요" @keyup.enter="searchPlaces">
+            <div class="input-group-append">
+              <button class="btn btn-primary search-button" type="button" @click="searchPlaces">검색</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="map"></div>
     <div>
-      <input type="text" v-model="keyword" placeholder="장소를 검색하세요" @keyup.enter="searchPlaces"/>
-      <button @click="searchPlaces">검색</button>
-      <div id="menu_wrap">
-        <ul id="placesList"></ul>
+      <div id="menu_wrap" class="container">
+        <ul class="list-group">
+          <li v-for="(place, index) in places" :key="index" class="list-group-item custom-list-item" :class="'marker_' + (index + 1)">
+            <span class="markerbg"></span>
+            <div class="info">
+              <h5>{{ place.place_name }}</h5>
+              <span>{{ place.road_address_name ? place.road_address_name : place.address_name }}</span>
+              <span class="tel">{{ place.phone }}</span>
+            </div>
+          </li>
+        </ul>
       </div>
+
     </div>
   </div>
 </template>
@@ -122,7 +143,7 @@ export default {
         fragment.appendChild(itemEl);
       }
 
-      listEl.appendChild(fragment);
+      // listEl.appendChild(fragment);
       menuEl.scrollTop = 0;
 
       this.map.setBounds(bounds);
@@ -228,4 +249,8 @@ export default {
   width: 100%;
   height: 500px;
 }
+
+.custom-list-item {
+    margin: 10px;
+  }
 </style>

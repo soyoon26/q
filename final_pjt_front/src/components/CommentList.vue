@@ -1,9 +1,6 @@
 <template>
   <div>
-    <h3>
-        Comment List
-
-    </h3>
+    <h3>댓글 목록</h3>
       <div>
       <CommentListItem
       v-for="comment in filteredComments"

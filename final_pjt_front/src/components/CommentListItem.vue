@@ -1,23 +1,31 @@
 <template>
-    <div>
-      <template v-if="!isEditMode">
-        <p>댓글 작성자: {{ comment.author }}</p>
-        <p>댓글 내용: {{ comment.content }}</p>
-        <p>댓글 생성시각: {{ comment.created_at }}</p>
-        <p>댓글 수정시각: {{ comment.updated_at }}</p>
-        <div v-if="isAuthorizedUser">
-          <button @click="toggleEditMode">수정</button>
-          <button @click="deleteComment">삭제</button>
-        </div>
-      </template>
-  
-      <template v-else>
-        <textarea v-model="editContent"></textarea>
-        <button @click="saveComment">저장</button>
-        <button @click="cancelEdit">취소</button>
-      </template>
-    </div>
-  </template>
+  <div>
+    <template v-if="!isEditMode">
+      <span class="comment-info">
+        <span class="author">{{ comment.author }}</span>
+        <span class="content-box">
+          <span class="content">{{ comment.content }}</span>
+        </span>
+      </span>
+      <span class="button-group" v-if="isAuthorizedUser">
+        <button class="btn btn-primary" @click="toggleEditMode">수정</button>
+        <button class="btn btn-danger" @click="deleteComment">삭제</button>
+      </span>
+      <div class="time-info">
+        <p>생성시각: {{ comment.created_at }}</p>
+        <p>수정시각: {{ comment.updated_at }}</p>
+      </div>
+    </template>
+
+    <template v-else>
+      <textarea v-model="editContent"></textarea>
+      <div class="button-group">
+        <button class="btn btn-primary" @click="saveComment">저장</button>
+        <button class="btn btn-secondary" @click="cancelEdit">취소</button>
+      </div>
+    </template>
+  </div>
+</template>
   
   <script>
   import axios from 'axios';
@@ -107,5 +115,29 @@
   </script>
   
   <style>
+  .comment-info {
+    margin-bottom: 10px;
+  }
+  
+  .author {
+    font-weight: bold;
+  }
+  
+  .content-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .button-group {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .time-info {
+    color: #888;
+    font-size: 12px;
+    margin-top: 10px;
+  }
   </style>
   

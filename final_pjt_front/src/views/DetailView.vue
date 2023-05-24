@@ -1,24 +1,23 @@
 <template>
-  <div>
-    <h2>게시판</h2>
-    <ul>
-      작성자: {{ boards.author_name }}
-      <!-- <div>좋아요한 사람: {{ board.like_user_names }}</div> -->
-      <div>제목: {{ boards.title }}</div>
-      <div>내용: {{ boards.content }}</div> 
-      <div>수정 시간: {{ boards.updated_at }}</div>
-      <div>생성 시간: {{ boards.created_at }}</div>
-
-      <hr>
-      <button class="btn btn-primary" @click="goToArticleView">글목록으로</button> <!-- 버튼 추가 -->
-      <hr>
-      <div v-if="isAuthorizedUser">
+  <div class="nanum">
+    <h2>글 상세보기</h2>
+    <div class="board-details">
+      <p class="author-name">작성자: {{ boards.author_name }}</p>
+      <h3 class="board-title">{{ boards.title }}</h3>
+      <div class="time-info">수정 시간: {{ boards.updated_at }}</div>
+      <div class="time-info">생성 시간: {{ boards.created_at }}</div>
+      <div class="content-box">
+        <div class="board-content">{{ boards.content }}</div>
+      </div>
+      <button class="btn btn-primary" @click="goToArticleView">목록으로</button>
+      <span v-if="isAuthorizedUser">
         <button class="btn btn-primary" @click="editBoard">수정</button>
-      </div>
-      <div v-if="isAuthorizedUser">
+      </span>
+      <span v-if="isAuthorizedUser">
         <button class="btn btn-danger" @click="deleteBoard">삭제</button>
-      </div>
-    </ul>
+      </span>
+    </div>
+    
     <hr>
     <Comment :boardId="boardId"/> <!--오른쪽이 부모 의미-->
     
@@ -100,5 +99,40 @@ export default {
 </script>
 
 <style>
-/* Add your custom styles here */
+.board-details {
+  text-align: left;
+  margin: 20px;
+}
+
+.author-name {
+  margin-bottom: 10px;
+}
+
+.board-title {
+  margin-top: 10px;
+}
+
+.time-info {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.content-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 2%;
+}
+
+.board-content {
+  text-align: left;
+  font-size: 16px;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 </style>

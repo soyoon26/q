@@ -1,93 +1,28 @@
 <template>
-  <div class="container d-flex flex-column">
-    <h3 class="col-6 align-self-center" style="text-align:center">Signup</h3>
+  <div class="container d-flex flex-column nanum">
     <div>
-    <h1>Sign Up Page</h1>
-    <p>로그인 페이지</p>
-    <hr>
-    <p>아이디 </p>
-    <p>문자, 숫자, @/./+/-/_만 가능합니다.</p>
-    <form @submit.prevent="signup">
-      <label for="username">username : </label>
-      <input type="text" id="username" v-model="username"><br>
-
-      <label for="password1"> password : </label>
-      <input type="password" id="password1" v-model="password1"><br>
-
-      <label for="password2"> password confirmation : </label>
-      <input type="password" id="password2" v-model="password2">
-      
-      <input type="submit" value="회원가입">
-    </form>
-  </div>
-    <!-- <div class="form-group container align-self-center" style="margin:1rem">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <label>username: </label>
-          <input
-            type="text"
-            class="form-control form-control-lg"
-            id="username"
-            v-model="username"
-          >
+      <h1>회원가입</h1>
+      <hr>
+      <p>문자, 숫자, @/./+/-/_만 가능합니다.</p>
+      <form @submit.prevent="signup" class="signup-form">
+        <div class="form-group">
+          <label for="username" class="label">Username:</label>
+          <input type="text" id="username" v-model="username" class="input">
         </div>
-      </div>
+
+        <div class="form-group">
+          <label for="password1" class="label">Password:</label>
+          <input type="password" id="password1" v-model="password1" class="input">
+        </div>
+
+        <div class="form-group">
+          <label for="password2" class="label">Confirm Password:</label>
+          <input type="password" id="password2" v-model="password2" class="input">
+        </div>
+
+        <button type="submit" class="btn btn-primary">회원가입</button>
+      </form>
     </div>
-
-    <div class="form-group container align-self-center" style="margin:1rem">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <label>Password</label>
-          <input
-            type="password"
-            class="form-control form-control-lg"
-            id="password1"
-            v-model="password1"
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group container align-self-center" style="margin:1rem">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <label>Password Confirm</label>
-          <input
-            type="password"
-            class="form-control form-control-lg"
-            id="password2"
-            v-model="password2"
-            @keyup.enter="signup"
-          >
-        </div>
-      </div>
-    </div> -->
-    
-    <!-- <button
-      @click="signup"
-      class="btn btn-secondary btn-lg btn-block col-6 align-self-center"
-      style="margin:2rem"
-    >Signup</button> -->
-
-    <!-- <div class="container align-self-center" style="margin-bottom:2rem">
-      <div class="row justify-content-center">
-        <span class="col-2" style="text-align:center">
-          <a href="#">
-            <i class="fa fa-google fa-2x"></i>
-          </a>
-        </span>
-        <span class="col-2" style="text-align:center">
-          <a href="#">
-            <i class="fa fa-facebook fa-2x"></i>
-          </a>
-        </span>
-        <span class="col-2" style="text-align:center">
-          <a href="#">
-            <i class="fa fa-twitter fa-2x"></i>
-          </a>
-        </span> -->
-      <!-- </div> -->
-    <!-- </div> -->
   </div>
 </template>
 
@@ -149,5 +84,47 @@ export default {
 </script>
 
 <style>
+.container {
+  margin: auto;
+}
 
+.align-self-center {
+  text-align: center;
+}
+
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
 </style>

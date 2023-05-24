@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h3>왜 .... ㅋㅋ </h3>
     <CreateComment/>
     <CommentList :boardId="this.boardId"/>
 

@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <h3>상품 Detail</h3>
+    <div class="nanum">
+      <h3>상품 상세정보</h3>
 
       <hr>
       <p>은행이름 : {{ product.kor_co_nm }}</p>
@@ -10,18 +10,9 @@
       <p>가입방법 : {{ product.join_way }}</p>
       <p> {{product.spcl_cnd}} </p>
       <hr>
-      <!-- <p>저축기간: {{ option.save_trm }}</p>
-      <p>저축금리: {{ option.intr_rate }}</p>
-      <p>최고우대금리: {{ option.intr_rate2 }}</p>
-      <p>저축 금리 유형명: {{ option.intr_rate_type_nm }}</p> -->
-
-      <p> 사이트 이동 : {{  }}</p> #이동안되는 링크 버튼 
-    
-      
-
-      <button @click="forSubscription">
-          {{ isSubscribed ? '즐겨찾기 취소' : '상품 즐겨찾기' }}
-        </button>
+      <button class="btn btn-primary" @click="forSubscription">
+        {{ isSubscribed ? '즐겨찾기 취소' : '상품 즐겨찾기' }}
+      </button>
   
     </div>
   </template>

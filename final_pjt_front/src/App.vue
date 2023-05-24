@@ -29,9 +29,9 @@
             </ul>
             <span class="navbar-text nanum">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center;">
+                <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center; text-align: center;">
                   <span>안녕하세요, {{ this.$store.state.username }}&nbsp;님</span>&nbsp;&nbsp;
-                  <router-link :to="{name:'ProfileView'}" class="nav-link">내 프로필</router-link>&nbsp;&nbsp;
+                  <router-link :to="{name:'ProfileView'}" class="nav-link">마이페이지</router-link>&nbsp;&nbsp;
                     <span class="nav-item">
                       <a href="#" @click="logout" class="nav-link">로그아웃</a>
                     </span>

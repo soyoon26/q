@@ -1,19 +1,19 @@
 <template>
-    <div>
-      <form @submit="submitForm">
-        <label for="title">Title:</label>
-        <input type="text" id="title" v-model="form.title" />
-  
-        <label for="content">Content:</label>
-        <textarea id="content" v-model="form.content"></textarea>
-  
-        <button type="submit" :disabled="!isAuthorizedUser">수정</button>
- 
-        <p v-if="!isAuthorizedUser">권한이 없습니다.</p>
-      </form>
-      <button @click="cancelEdit">수정 취소</button>
-    </div>
-  </template>
+  <div>
+    <form @submit="submitForm" class="edit-form">
+      <label for="title">Title:</label>
+      <input type="text" id="title" v-model="form.title" />
+
+      <label for="content">Content:</label>
+      <textarea id="content" v-model="form.content"></textarea>
+
+      <button type="submit" :disabled="!isAuthorizedUser" class="btn btn-primary">수정</button>
+
+      <p v-if="!isAuthorizedUser">권한이 없습니다.</p>
+    </form>
+    <button @click="cancelEdit" class="btn btn-secondary">수정 취소</button>
+  </div>
+</template>
   
   <script>
  import axios from 'axios';
@@ -101,4 +101,39 @@ export default {
 
 
   </script>
-  
+
+<style>
+.edit-form {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+</style>

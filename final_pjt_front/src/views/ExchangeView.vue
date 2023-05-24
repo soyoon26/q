@@ -1,30 +1,38 @@
-<!-- EXCHANGE.vue -->
 <template>
-  <div>
-    <h1>환율 계산기</h1>
-    <div>
-      <label for="country1">나라 1:</label>
-      <select id="country1" v-model="selectedCountry1" @change="calculateExchange">
-        <option v-for="country in countries" :value="country.cur_unit" :key="country.cur_unit">
-          {{ country.cur_nm }}
-        </option>
-      </select>
-    </div>
-    <div>
-      <label for="country2">나라 2:</label>
-      <select id="country2" v-model="selectedCountry2" @change="calculateExchange">
-        <option v-for="country in countries" :value="country.cur_unit" :key="country.cur_unit">
-          {{ country.cur_nm }}
-        </option>
-      </select>
-    </div>
-    <div>
-      <label for="amount">금액 (원화):</label>
-      <input id="amount" type="number" v-model="amount" @input="calculateExchange">
-    </div>
-    <div>
-      <p>환율: {{ exchangeRate }}</p>
-      <p>{{ selectedCountry1 }} → {{ selectedCountry2 }}: {{ convertedAmount }}</p>
+  <div class="container nanum">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center mb-4">환율 계산기</h1>
+        <hr>
+        <br>
+        <div class="form-group">
+          <label for="country1">FROM</label>
+          <select id="country1" class="form-control" v-model="selectedCountry1" @change="calculateExchange">
+            <option v-for="country in countries" :value="country.cur_unit" :key="country.cur_unit">
+              {{ country.cur_nm }}
+            </option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="country2">TO</label>
+          <select id="country2" class="form-control" v-model="selectedCountry2" @change="calculateExchange">
+            <option v-for="country in countries" :value="country.cur_unit" :key="country.cur_unit">
+              {{ country.cur_nm }}
+            </option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="amount">금액</label>
+          <input id="amount" type="number" class="form-control" v-model="amount" @input="calculateExchange">
+        </div>
+        <hr>
+        <div>
+          <p>환율: {{ exchangeRate }}</p>
+          <p>{{ selectedCountry1 }} → {{ selectedCountry2 }}: {{ convertedAmount }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -91,3 +99,34 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container {
+  height: 100vh;
+}
+
+.row {
+  height: 100%;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.col-md-6 {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+</style>
+
+
+
+
+
+
+

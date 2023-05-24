@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <h1>Board Page</h1>
-    <router-link :to="{ name: 'CreateView' }">[CREATE]</router-link>
+  <div class="nanum">
+    <h1>자유게시판</h1>
+    <br><br>
+    <router-link :to="{ name: 'CreateView' }" class="btn btn-primary">글 작성하기</router-link>
     <hr>
     <ArticleList/>
 

@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <h3>Create Comment</h3>
-    <form @submit.prevent="submitComment">
-      <label for="content">Content:</label>
-      <textarea id="content" v-model="content"></textarea>
-      <button type="submit" id="submit">댓글 등록</button>
-    </form>
+  <div class="flex-container">
+    <div>
+      <h5>댓글 작성</h5>
+    </div>
+    <div class="textarea-container">
+      <form @submit.prevent="submitComment" class="comment-form">
+        <label for="content" class="label"></label>
+        <textarea id="content" v-model="content" class="textarea"></textarea>
+      </form>
+    </div>
+    <div class="button-container">
+      <button type="submit" id="submit" class="btn btn-primary">등록</button>
+    </div>
   </div>
 </template>
 
@@ -45,5 +51,52 @@ export default {
 </script>
 
 <style>
-/* Add your custom styles here */
+.label {
+  font-weight: bold;
+}
+
+.textarea {
+  width: 80%;
+  height: 150px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  text-align: right;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+.flex-container {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container > div {
+  margin-right: 10px;
+}
+
+.textarea-container {
+  flex-grow: 1;
+}
+
+.textarea {
+  width: 100%;
+  height: 150px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  margin-left: auto;
+}
 </style>
