@@ -29,7 +29,6 @@ export default {
     created() {
       this.forSon() //인스턴스 생성된 직후 요청을 보내기 위해
       console.log(this.boardId)
-      console.log('제발 되어ㅇ라 얍')
     },
     methods: {
       forSon() {

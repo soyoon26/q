@@ -1,19 +1,22 @@
 <template>
     <div>
       <h3>상품 Detail</h3>
-      {{ product }} 
-      <hr>
-      <h3>공시제출월이 필요</h3>
 
-      <p>공시제출월 : {{ product.dcls_month }}</p>
+      <hr>
       <p>은행이름 : {{ product.kor_co_nm }}</p>
       <p>예금이름 : {{ product.fin_prdt_nm }}</p>
       <p>가입기간 : {{ product.etc_note }}</p>
       <p>가입대상 : {{ product.join_member }}</p>
       <p>가입방법 : {{ product.join_way }}</p>
       <p> {{product.spcl_cnd}} </p>
-      <p> 사이트 이동 : {{  }}</p> #이동안되는 링크
-      <p> 사이트 이동 : {{  }}</p> 
+      <hr>
+      <!-- <p>저축기간: {{ option.save_trm }}</p>
+      <p>저축금리: {{ option.intr_rate }}</p>
+      <p>최고우대금리: {{ option.intr_rate2 }}</p>
+      <p>저축 금리 유형명: {{ option.intr_rate_type_nm }}</p> -->
+
+      <p> 사이트 이동 : {{  }}</p> #이동안되는 링크 버튼 
+    
       
 
       <button @click="forSubscription">
@@ -34,9 +37,9 @@
       isSubscribed() {
         return this.$store.state.isSub;
           },
-    //   isUserSubscribed() {
-    //     return this.$store.state.user.isSubscribed;
-    //       },
+      options() {
+        return this.$store.state.options
+          },
       },
       data() {
           return {

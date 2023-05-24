@@ -3,6 +3,10 @@
     <h3 class="col-6 align-self-center" style="text-align:center">Signup</h3>
     <div>
     <h1>Sign Up Page</h1>
+    <p>로그인 페이지</p>
+    <hr>
+    <p>아이디 </p>
+    <p>문자, 숫자, @/./+/-/_만 가능합니다.</p>
     <form @submit.prevent="signup">
       <label for="username">username : </label>
       <input type="text" id="username" v-model="username"><br>

@@ -20,6 +20,7 @@ export default new Vuex.Store({
     content_author: null,
     comments: [],
     products: [],
+    options: [],
     token: null,
     isSub: false,
     depositProduct: {
@@ -40,6 +41,12 @@ export default new Vuex.Store({
     GET_PRODUCTS(state, products) {
       console.log('data전달')
       state.products = products
+    },
+    GET_OPTIONS(state, options) {
+      console.log('options 전달mutations까지 완료 ㅋㅋ')
+      state.options = options
+      console.log(options)
+      console.log('zz뷰 다털렷죠? ')
     },
     GET_ARTICLES(state, articles) {
       state.articles = articles // 받아온 데이터 state에 저장
@@ -68,7 +75,7 @@ export default new Vuex.Store({
       console.log(state.token, '이게 나와야 됨');
       state.isLogin = true;
       state.username = username.value;
-      router.push({ name: 'App' });
+      router.push({ name: 'home' });
     },
     LOGOUT(state) {
       state.isLogin = false
@@ -88,7 +95,7 @@ export default new Vuex.Store({
       // state.username = payload.username.value
       console.log(state.token)
       console.log(state.username, '썅 ㅋㅋ')
-      router.push({ name: 'App' }) // store/index.js $router 접근 불가 -> import를 해야함
+      router.push({ name: 'home' }) // store/index.js $router 접근 불가 -> import를 해야함
       console.log(this.isLogin,'로그인됐는지, 여기가 마지막?')
       // this.$cookies.set('token', token)
     },
@@ -225,12 +232,31 @@ export default new Vuex.Store({
       })
         .then((res) => {
           console.log(res, context)
+          console.log('아금리왤케 ㅜ ')
+          console.log(res.data)
           context.commit('GET_PRODUCTS', res.data)
         })
         .catch((err) => {
           console.log(err)
         })
     },
+    getOptions(context) {
+      console.log('옵션 actions도착');
+      console.log(`${API_URL}/products/deposit-options/`);
+      
+      axios({
+        method: 'get',
+        url: `${API_URL}/products/deposit-options/`,
+      })
+        .then((res) => {
+          console.log(res);
+          context.commit('GET_OPTIONS', res.data)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    
     signup({ commit, state }, payload) {
       const username = payload.username;
       const password1 = payload.password1;
@@ -270,6 +296,8 @@ export default new Vuex.Store({
         })
         .catch((err) => {
           console.log(err);
+          console.log('회원가입 오류');
+          alert('유효한 아이디와 비밀번호를 넣어주세요');
         });
     },
     login({ commit, state }, payload) {
@@ -292,8 +320,6 @@ export default new Vuex.Store({
           const token = res.data.key;
           commit('SAVE_TOKEN', { token, username });
           console.log(username);
-          console.log('흠냐릥');
-          console.log('_________');
           const userToken = {
             headers: {
               'Content-Type': 'application/json',
@@ -314,6 +340,7 @@ export default new Vuex.Store({
         })
         .catch((err) => {
           console.log(err);
+          alert('아이디와 비밀번호를 확인하세요.');
         });
     },
     

@@ -94,6 +94,7 @@ export default {
         this.$store.state.username === this.boards.author_name
       );
     },
+    
   },
 };
 </script>

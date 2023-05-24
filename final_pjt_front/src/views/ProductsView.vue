@@ -19,12 +19,14 @@ export default {
     created() {
     console.log('시작')
     this.getProducts()
+   
     },
     methods: {
         getProducts() {
         console.log('dispatch')
           this.$store.dispatch('getProducts')  
-        }
+        },
+       
     }
 }
 </script>
