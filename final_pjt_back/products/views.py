@@ -71,7 +71,18 @@ def deposit_products(request):
         else:
             return JsonResponse({ 'status': 'fail', 'message': serializer.errors })
 
-
+@api_view(['GET', 'POST'])
+def deposit_options(request):
+    if request.method == 'GET':
+        options = DepositOptions.objects.all()
+        serializer = DepositOptionsSerializer(options, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = DepositOptionsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def deposit_products_detail(request, pk):
