@@ -70,9 +70,10 @@
 
 
   npm install
-  
+  npm을 이용하여 필요한 패키지 설치
   
   npm run serve
+  웹팩 개발 서버 구동
   ```
 
 #### 와이어프레임
