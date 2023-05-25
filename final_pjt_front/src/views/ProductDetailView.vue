@@ -10,10 +10,14 @@
       <p>가입방법 : {{ product.join_way }}</p>
       <p> {{product.spcl_cnd}} </p>
       <hr>
-      <button class="btn btn-primary" @click="forSubscription">
+      <!-- <button class="btn btn-primary" @click="forSubscription">
         {{ isSubscribed ? '즐겨찾기 취소' : '상품 즐겨찾기' }}
       </button>
-  
+   -->
+   <button class="btn btn-primary" @click="forSubscription" v-if="$store.state.username !== null">
+      {{ isSubscribed ? '즐겨찾기 취소' : '상품 즐겨찾기' }}
+  </button>
+
     </div>
   </template>
   

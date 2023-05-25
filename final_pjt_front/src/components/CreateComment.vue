@@ -1,17 +1,12 @@
+
 <template>
-  <div class="flex-container">
-    <div>
-      <h5>댓글 작성</h5>
-    </div>
-    <div class="textarea-container">
-      <form @submit.prevent="submitComment" class="comment-form">
-        <label for="content" class="label"></label>
-        <textarea id="content" v-model="content" class="textarea"></textarea>
-      </form>
-    </div>
-    <div class="button-container">
-      <button type="submit" id="submit" class="btn btn-primary">등록</button>
-    </div>
+  <div>
+    <h3>Create Comment</h3>
+    <form @submit.prevent="submitComment">
+      <label for="content">Content:</label>
+      <textarea id="content" v-model="content"></textarea>
+      <button type="submit" id="submit">댓글 등록</button>
+    </form>
   </div>
 </template>
 
@@ -49,7 +44,6 @@ export default {
   },
 };
 </script>
-
 <style>
 .label {
   font-weight: bold;

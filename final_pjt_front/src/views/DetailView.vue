@@ -75,7 +75,11 @@ export default {
       })
       .then((res) => {
         console.log(res);
+        console.log('d-1')
+        console.log(this.$route.params.id)
         console.log('삭제됨');
+        this.$store.commit('REMOVE_BOARD', this.$route.params.id);
+    
         this.$router.push({ name: 'ArticleView' }); 
       })``````
       .catch((err) => {

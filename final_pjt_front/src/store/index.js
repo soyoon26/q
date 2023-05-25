@@ -38,6 +38,13 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    REMOVE_BOARD(state, articleId) {
+      const index = state.articles.findIndex(article => article.id === articleId);
+      if (index !== -1) {
+        state.articles.splice(index, 1);
+      }
+      console.log('제발삭제되게해줘요')
+    },
     GET_PRODUCTS(state, products) {
       console.log('data전달')
       state.products = products
@@ -61,6 +68,7 @@ export default new Vuex.Store({
     },
     SET_COMMENTS(state, comments) {
       state.comments = comments
+      console.log(state.comments)
     }, // 댓글 목록 업데이트 반영하기
     // signup & login -> 완료하면 토큰 발급
     // SIGN_UP(state, token) {
@@ -110,6 +118,15 @@ export default new Vuex.Store({
       state.userid = userid;
       console.log(userid)
       console.log('나에게과분한페어')
+    },
+    REMOVE_BOARD(state, boardforId) {
+      const index = state.articles.findIndex(article => article.id === boardforId);
+      if (index !== -1) {
+        state.articles.splice(index, 1);
+      }
+      console.log('짜장면나오는날')
+      alert('글 삭제가 완료되었습니다.')
+      console.log(state.aricles)
     },
   },
   actions: {
@@ -212,16 +229,23 @@ export default new Vuex.Store({
         })
     },
     updateComments({ commit, state }) {
+      console.log('여기까지는 왓다')
       axios.get(`${API_URL}/boards/comments/`, { // 주소 변경해야 함
         headers: {
           'Authorization': `Token ${state.token}`,
         },
+        
       })
         .then((res) => {
+          console.log('범상치않은 인물')
           commit('SET_COMMENTS', res.data)
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err)
+          console.log('범인')
+          state.comments= []
+          console.log(state.comments,'마지막 . . ')
         })
     },
     getProducts(context) {
@@ -347,6 +371,7 @@ export default new Vuex.Store({
     logout({ commit }) {
       localStorage.removeItem('jwt')
       commit('LOGOUT')
+      alert('로그아웃되었습니다.')
     },
     subscribeProduct(context) {
       const state = context.state; // 상태 객체에 접근
@@ -389,21 +414,7 @@ export default new Vuex.Store({
           console.log(error);
         });
     },
-    // checkUserSubscription({ commit }) {
-    //   return axios
-    //     .get(`/api/subscription/${productPk}/check/`)
-    //     .then((response) => {
-    //       if (response.status === 200) {
-    //         const isSubscribed = response.data.is_subscribed;
-    //         commit('setUserSubscriptionStatus', isSubscribed);
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // },
-  // },
-    
+
   },
   
 
