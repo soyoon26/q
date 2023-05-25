@@ -15,6 +15,10 @@
 
 ▪ [기획의도 및 기대효과](https://github.com/FinanceProduct/final_pjt#-%EA%B8%B0%ED%9A%8D%EC%9D%98%EB%8F%84-%EB%B0%8F-%EA%B8%B0%EB%8C%80%ED%9A%A8%EA%B3%BC) 
 
+▪ [사용한 기술스택](https://github.com/FinanceProduct/final_pjt/blob/master/README.md#-%EC%82%AC%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D) 
+
+
+
 ▪ [설치 및 실행](https://github.com/FinanceProduct/final_pjt#-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%8B%A4%ED%96%89) 
 
 ▪ [ERD](https://github.com/FinanceProduct/final_pjt#-erd) 
