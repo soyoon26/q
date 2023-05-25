@@ -183,7 +183,7 @@
 
 #### 메인 페이지
 
----메인화면---
+![home](https://github.com/FinanceProduct/final_pjt/assets/122415737/730301b5-ffb5-4479-874c-6ad5348cc187)
 
 사이트에 대한 소개입니다.
 
@@ -191,7 +191,7 @@
 
 #### 주변 은행 찾기
 
----대충 구글맵 검색하는 사진---
+![kakaomap](https://github.com/FinanceProduct/final_pjt/assets/122415737/17fb94a9-35be-4d20-b8c4-06cda832aa73)
 
 Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 은행을 검색해볼 수 있습니다.
 
