@@ -70,7 +70,7 @@ draw.io 쓰면 된다네요
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
-|     |     |     |
+| GET | `calculate/` | 환율 조회 |
 |     |     |     |
 |     |     |     |
 |     |     |     |
@@ -82,14 +82,15 @@ draw.io 쓰면 된다네요
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-
+| GET | `save-deposit-products/` | 금융상품 불러오기 |
+| GET | `save-deposit-options/` | 금리 불러오기 |
+| GET,POST | `deposit-products/` | 금융상품 목록 조회 |
+| GET, POST | `deposit-options/` | 금리 조회 |
+| GET | `deposit-products/<int:pk>/` | 금융상품 상세조회 |
+| GET | `deposit-product-options/<str:fin_prdt_cd>/` | 금리 상세조회 |
+| GET | `deposit-products/top-rate/` | 최고금리조회 |
+| POST | `<int:product_pk>/subscription/` | 상품 즐겨찾기 |   
+| GET | `subscribed-products/` | 유저별 구독 상품 |
 #### 파일 구조
 
 디렉터리 구조
