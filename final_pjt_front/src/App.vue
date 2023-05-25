@@ -4,39 +4,38 @@
       <router-link :to="{ name: 'home' }"><img src="@/assets/mainlogo.png" alt="homelogo" style="height: 70px; margin-top: 20px; margin-bottom: 10px;"></router-link>
       <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" @click="toggleMenu">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarText">
+          <div class="collapse navbar-collapse" :class="{ 'show': isMenuOpen }" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 nanum">
-              <li class="nav-item">
+              <li class="nav-item" @click="closeMenu">
                 <router-link :to="{ name: 'home' }" class="nav-link">&nbsp;&nbsp;홈&nbsp;&nbsp;</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" @click="closeMenu">
                 <router-link :to="{ name: 'BankView' }" class="nav-link">&nbsp;&nbsp;주변 은행 찾기&nbsp;&nbsp;</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" @click="closeMenu">
                 <router-link :to="{ name: 'ProductsView' }" class="nav-link">&nbsp;&nbsp;금융 상품&nbsp;&nbsp;</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" @click="closeMenu">
                 <router-link :to="{ name: 'ExchangeView' }" class="nav-link">&nbsp;&nbsp;환율 계산기&nbsp;&nbsp;</router-link>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" @click="closeMenu">
                 <router-link :to="{ name: 'ArticleView' }" class="nav-link">&nbsp;&nbsp;자유게시판&nbsp;&nbsp;</router-link>
               </li>
-              <li class="nav-item">
-              </li>
+
             </ul>
             <span class="navbar-text nanum">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center; text-align: center;">
+                <span v-if="$store.state.isLogin"  style="padding-right:0.5rem; display: flex; align-items: center; text-align: center;"  @click="closeMenu">
                   <span>안녕하세요, {{ this.$store.state.username }}&nbsp;님</span>&nbsp;&nbsp;
                   <router-link :to="{name:'ProfileView'}" class="nav-link">마이페이지</router-link>&nbsp;&nbsp;
                     <span class="nav-item">
                       <a href="#" @click="logout" class="nav-link">로그아웃</a>
                     </span>
                 </span>
-                <span v-else style="padding-right: 0.5rem; display: flex; align-items: center;">
+                <span v-else style="padding-right: 0.5rem; display: flex; align-items: center;" @click="closeMenu">
                   <router-link :to="{ name: 'LogInView' }" class="nav-link" style="margin-right: 0.5rem;">로그인</router-link>
                   <router-link :to="{ name: 'SignUpView' }" class="nav-link">회원가입</router-link>
                 </span>
@@ -64,7 +63,8 @@ export default {
   data(){
     return {
       searchContent : null,
-      searchProducts : null
+      searchProducts : null,
+      isMenuOpen: false, // 햄버거 메뉴가 열려있는지 여부를 저장하는 변수
     }
   },
   methods : {
@@ -75,6 +75,12 @@ export default {
     logout: function () {
       this.$store.dispatch('logout')
       this.$router.push({ name: 'App' })
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen; // 햄버거 메뉴 상태 토글
+    },
+    closeMenu() {
+      this.isMenuOpen = false; // 메뉴 닫기
     },
   }
 }

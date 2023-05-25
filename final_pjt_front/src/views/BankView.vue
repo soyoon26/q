@@ -1,7 +1,8 @@
 <template>
-    <div class="nanum">
+    <div class="nanum container">
         <h1>주변 은행 찾기</h1>
         <KakaomapView/>
+        <br><br><br><br><br>
     </div>
 </template>
 
