@@ -28,6 +28,52 @@
 
 ##### 아키텍처
 
+#### 설치 및 실행
+
+
+##### 백엔드
+
+
+1. 기본 실행
+
+   - `./final_pjt_back` 
+   - ```
+     venv 가상환경 설정 - python 3.7 
+     
+     pip install requirements.txt
+     
+     python manage.py makemigrations
+     
+     python maange.py migrate
+     
+     python manage.py runserver
+     ```
+   
+   - env 파일에는 환율, 카카오로그인, 금융상품정보를 위한 API key 정보가 들어갑니다. 
+   
+   
+2. 금융상품정보 업데이트
+ 
+ 
+   - `http://127.0.0.1:8000/products/save-deposit-products/`
+   - `http://127.0.0.1:8000/products/save-deposit-options/`
+
+
+
+
+
+
+##### 프론트엔드
+
+- ```
+- `./final_pjt_front`
+
+
+  npm install
+  
+  
+  npm run serve
+  ```
 
 #### 와이어프레임
 
