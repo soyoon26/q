@@ -220,21 +220,23 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 게시판에서 은행 업무 관련 질문과 의견을 나눌 수 있습니다.
 
----대충 게시글 상세 화면---
+
+![comment](https://github.com/FinanceProduct/final_pjt/assets/122415737/0db37bf5-8e38-45ae-9b71-50f6730f62df)
 
 게시글에서 댓글을 통해 작성자와 소통할 수 있습니다.
 
----대충 게시글 작성 화면---
+![create_article](https://github.com/FinanceProduct/final_pjt/assets/122415737/5034e611-83fe-4adc-9b8d-6ab8d6786f04)
 
 로그인한 회원에 한해 게시글을 작성할 수 있습니다.
 
----대충 게시글 수정 화면---
 
-자신이 작성한 글을 수정할 수 있습니다.
+![edit_article](https://github.com/FinanceProduct/final_pjt/assets/122415737/c260b98c-cfcf-4eb3-be0f-a4ed58c8d25f)
+
+자신이 작성한 글을 수정및 삭제할 수 있습니다.
 
 #### 회원
 
----회원가입, 로그인 화면---
+![login_logout](https://github.com/FinanceProduct/final_pjt/assets/122415737/28d534c5-bc59-4c9d-ab41-a7b9c2480996)
 
 일반 계정 혹은 구글 계정을 통해 회원가입 및 로그인이 가능합니다.
 
