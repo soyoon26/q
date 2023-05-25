@@ -38,7 +38,7 @@
 
    - `./final_pjt_back` 
    - ```
-     venv 가상환경 설정 - python 3.7 
+     venv 가상환경 설정 - python 3.9
      
      pip install requirements.txt
      
