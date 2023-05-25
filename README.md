@@ -71,12 +71,7 @@ draw.io 쓰면 된다네요
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
 | GET | `calculate/` | 환율 조회 |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
+
 
 #### products app
 
