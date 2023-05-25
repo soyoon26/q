@@ -216,7 +216,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 #### 커뮤니티
 
----대충 글 목록---
+![article_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/e122c8fb-47b9-4c5f-9225-e1d78af2cf65)
 
 게시판에서 은행 업무 관련 질문과 의견을 나눌 수 있습니다.
 
@@ -230,7 +230,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 로그인한 회원에 한해 게시글을 작성할 수 있습니다.
 
 
-![edit_article](https://github.com/FinanceProduct/final_pjt/assets/122415737/c260b98c-cfcf-4eb3-be0f-a4ed58c8d25f)
+
 
 자신이 작성한 글을 수정및 삭제할 수 있습니다.
 
