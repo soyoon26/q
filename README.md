@@ -250,6 +250,13 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 #### 팀원 및 업무 분담
 
+## 👨‍👩‍👧‍👧 팀원 소개   
+| NONO | SOSO |
+|------|------|
+| 팀장 | 팀원 |
+| <img style="width:160px" src = "https://github.com/FinanceProduct/final_pjt/assets/122415737/2504e088-d42f-4219-9bdc-72898549999f"> | <img style="width:160px" src = "https://github.com/FinanceProduct/final_pjt/assets/122415737/ea2ddb61-538d-4176-a893-60431dc57f9b0"> |
+| [@stubborngastropod](https://github.com/stubborngastropod) | [@soyoon26](https://github.com/soyoon26) |
+
 #### 개발기록
 
 대충...........노션 캘린더에 작성하면 ㄱㅊ할듯ㄱ
