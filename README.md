@@ -79,24 +79,27 @@
 <br>
  
  #### ◾ 프레임워크
- 
-<br>
- 
+
+
+ <br>
+
  <table>
     <tbody>
         <tr>
-            <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/220px-Vue.js_Logo_2.svg.png" width="100" height="100"</td>
+            <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/220px-Vue.js_Logo_2.svg.png"" width="100" height="100"></td>
            <td align="center"><img src="https://github.com/FinanceProduct/final_pjt/assets/122415737/1dfa7af6-1ce1-4356-843f-555792ac88b3" width="100" height="100"></td>
         </tr>
         <tr>
             <td align="center">Vue.js</td>
            <td align="center">Django</td>
-          
         </tr>
     </tbody>
 </table>
 
- <br>
+
+<br> 
+
+
  
  #### ◾ 협업툴
  
@@ -126,7 +129,6 @@
 
 #### ***Backend***
 
-  <br>
 
 1. 기본 실행
 
@@ -323,10 +325,12 @@
 
 ![home](https://github.com/FinanceProduct/final_pjt/assets/122415737/730301b5-ffb5-4479-874c-6ad5348cc187)
 
-사이트에 대한 소개입니다.
+```               
+- 사이트에 대한 소개입니다.
 
-상단의 네비게이션 바와 본문의 사진을 통해 원하는 기능으로 이동할 수 있습니다.
-
+- 상단의 네비게이션 바와 본문의 사진을 통해 원하는 기능으로 이동할 수 있습니다.
+```
+               
   <br>
     <br>
 
@@ -336,10 +340,12 @@
 
 ![kakaomap](https://github.com/FinanceProduct/final_pjt/assets/122415737/17fb94a9-35be-4d20-b8c4-06cda832aa73)
 
-Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 은행을 검색해볼 수 있습니다.(현재 Kakao Map 적용)
+```
+- Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 은행을 검색해볼 수 있습니다.(현재 Kakao Map 적용)
 
-선택한 은행을 로그인한 구글 계정에 저장할 수 있습니다. (구현 예정)
-
+- 선택한 은행을 로그인한 구글 계정에 저장할 수 있습니다. (구현 예정)
+```
+               
   <br>
     <br>
     
@@ -350,16 +356,19 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 ![products_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/bcd42fa0-f0a7-4fc5-ab07-3d47e2acc5d9)
 
-국내 은행의 예금 상품을 금리별로 비교할 수 있습니다.
+```
+- 국내 은행의 예금 상품을 금리별로 비교할 수 있습니다.
 
-원하는 은행별로 상품을 확인할 수 있습니다.
-
+- 원하는 은행별로 상품을 확인할 수 있습니다.
+```
+               
   <br>
 
 ![product_detail](https://github.com/FinanceProduct/final_pjt/assets/122415737/122aa194-2697-4fe5-9d05-ad41f1c8ed96)
 
-관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
-
+```               
+- 관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
+```
 
   <br>
     <br>
@@ -372,8 +381,9 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 ![exchange](https://github.com/FinanceProduct/final_pjt/assets/122415737/6557a5bd-9b05-46c3-a108-60f6d33a63a9)
 
-나라별 실시간 환율 조회가 가능합니다.
-
+```               
+- 나라별 실시간 환율 조회가 가능합니다.
+```
   <br>
     <br>
   
@@ -384,28 +394,34 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 ![article_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/e122c8fb-47b9-4c5f-9225-e1d78af2cf65)
 
-게시판에서 은행 업무 관련 질문과 의견을 나눌 수 있습니다.
-
+```
+- 게시판에서 은행 업무 관련 질문과 의견을 나눌 수 있습니다.
+```
+               
   <br>
 
 
 ![comment](https://github.com/FinanceProduct/final_pjt/assets/122415737/0db37bf5-8e38-45ae-9b71-50f6730f62df)
 
-게시글에서 댓글을 통해 작성자와 소통할 수 있습니다.
-
+```
+- 게시글에서 댓글을 통해 작성자와 소통할 수 있습니다.
+```
   <br>
 
 ![create_article](https://github.com/FinanceProduct/final_pjt/assets/122415737/5034e611-83fe-4adc-9b8d-6ab8d6786f04)
 
-로그인한 회원에 한해 게시글을 작성할 수 있습니다.
-
+```
+- 로그인한 회원에 한해 게시글을 작성할 수 있습니다.
+```
 
   <br>
 
 ![article_edit_delete](https://github.com/FinanceProduct/final_pjt/assets/122415737/b0ecc049-3be8-440d-bd8a-4f5a3b9c6e53)
 
-자신이 작성한 글을 수정및 삭제할 수 있습니다.
-
+```               
+- 자신이 작성한 글을 수정및 삭제할 수 있습니다.
+```
+               
   <br>
     <br>
 
@@ -413,14 +429,16 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 ![login_logout](https://github.com/FinanceProduct/final_pjt/assets/122415737/28d534c5-bc59-4c9d-ab41-a7b9c2480996)
 
-일반 계정 혹은 구글 계정을 통해(구현예정) 회원가입 및 로그인이 가능합니다.
-
+```               
+- 일반 계정 혹은 구글 계정을 통해(구현예정) 회원가입 및 로그인이 가능합니다.
+```
   <br>
 
 ![profile](https://github.com/FinanceProduct/final_pjt/assets/122415737/b4bc1025-7215-4f31-9280-9cbee01284fa)
 
-내가 즐겨찾기 한 상품, 내가 쓴 글과 댓글을 확인할 수 있습니다.
-
+```
+- 내가 즐겨찾기 한 상품, 내가 쓴 글과 댓글을 확인할 수 있습니다.
+```
   <br>
 
 ---
@@ -432,7 +450,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
   <br>
 
-### 팀원소개   
+### ◾ 팀원소개   
 
 
 | 노창현(NONO) | 박소윤(SOSO) |
@@ -443,11 +461,11 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
   <br>
 
-### 업무 분담
+### ◾ 업무 분담
 
-  <br>
+ 
 
-#### ◾ 🐌 노창현
+#### ▪ 🐌 노창현
    ##### ▫ Backend
    ```
       - 전체 API 설계
@@ -478,7 +496,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
    <br>
    <br>
    
-#### ◾ 🐶 박소윤 
+#### ▪ 🐶 박소윤 
    ##### ▫ BackEnd
    ```
    - ERD 작성
