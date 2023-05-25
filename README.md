@@ -209,6 +209,11 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
 
+
+#### 환율계산기
+
+![exchange](https://github.com/FinanceProduct/final_pjt/assets/122415737/6557a5bd-9b05-46c3-a108-60f6d33a63a9)
+
 #### 커뮤니티
 
 ---대충 글 목록---
