@@ -159,6 +159,11 @@
  ┃ ┃ ┃ ┗ 📜index
  ┃ ┃ ┣ 📂views
  ┃ ┃ ┃ ┣ 📂accounts
+ ┃ ┃ ┃ ┃ ┣ 📜KakaoLoginView
+ ┃ ┃ ┃ ┃ ┣ 📜LoginView
+ ┃ ┃ ┃ ┃ ┣ 📜ProfileView
+ ┃ ┃ ┃ ┃ ┣ 📜SignUpView
+ ┃ ┃ ┃ ┣ 📂login
  ┃ ┃ ┃ ┃ ┣ 📜AboutView
  ┃ ┃ ┃ ┃ ┣ 📜ArticleView
  ┃ ┃ ┃ ┃ ┣ 📜BankView
@@ -169,204 +174,9 @@
  ┃ ┃ ┃ ┃ ┣ 📜HomeView
  ┃ ┃ ┃ ┃ ┣ 📜ProductDetailView
  ┃ ┃ ┃ ┃ ┣ 📜ProductsView
- 
- 
- 
- 
- 
- 
- 
- 
- ┃ ┃ ┃ ┃ ┗ 📜gradle-wrapper.properties
- ┃ ┃ ┣ 📂src
- ┃ ┃ ┃ ┣ 📂main
- ┃ ┃ ┃ ┃ ┣ 📂java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂favshare
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ModelMapperConfig.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SwaggerConfig.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜WebConfig.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂controller
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LikeCommentController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeEditController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂dto
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂input
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜EmailPasswordDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedPopIdDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedUserIdDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeUserIdDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FollowDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeEditDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeInfoDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂entity
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FollowEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜IdolEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜StoreYoutubeEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UserEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeEntity.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂exception
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UnauthorizedException.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂interceptor
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜JwtInterceptor.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂repository
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜StoreYoutubeRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UserRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeRepository.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂service
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UserService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜FavshareApplication.java
- ┃ ┃ ┃ ┃ ┗ 📂resources
- ┃ ┃ ┃ ┃ ┃ ┗ 📜application.properties
- ┃ ┃ ┃ ┗ 📂test
- ┃ ┃ ┃ ┃ ┗ 📂java
- ┃ ┃ ┃ ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂favshare
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜FavshareApplicationTests.java
- ┃ ┃ ┣ 📜.gitignore
- ┃ ┃ ┣ 📜build.gradle
- ┃ ┃ ┣ 📜gradlew
- ┃ ┃ ┣ 📜gradlew.bat
- ┃ ┃ ┗ 📜settings.gradle
- ┣ 📂FrontEnd
- ┃ ┣ 📂favshare
- ┃ ┃ ┣ 📂public
- ┃ ┃ ┃ ┣ 📜favicon.ico
- ┃ ┃ ┃ ┣ 📜favicon_ex.ico
- ┃ ┃ ┃ ┗ 📜index.html
- ┃ ┃ ┣ 📂src
- ┃ ┃ ┃ ┣ 📂api
- ┃ ┃ ┃ ┃ ┣ 📜googleAPI.js
- ┃ ┃ ┃ ┃ ┗ 📜springRestAPI.js
- ┃ ┃ ┃ ┣ 📂assets
- ┃ ┃ ┃ ┃ ┣ 📂fonts
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SpoqaHanSansNeo-Bold.ttf
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SpoqaHanSansNeo-Light.ttf
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SpoqaHanSansNeo-Medium.ttf
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SpoqaHanSansNeo-Regular.ttf
- ┃ ┃ ┃ ┃ ┃ ┗ 📜SpoqaHanSansNeo-Thin.ttf
- ┃ ┃ ┃ ┃ ┣ 📜facebook.png
- ┃ ┃ ┃ ┃ ┣ 📜favshare.png
- ┃ ┃ ┃ ┃ ┣ 📜google.png
- ┃ ┃ ┃ ┃ ┣ 📜logo.png
- ┃ ┃ ┃ ┃ ┣ 📜logo.svg
- ┃ ┃ ┃ ┃ ┗ 📜twitter.png
- ┃ ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┃ ┣ 📂common
- ┃ ┃ ┃ ┃ ┃ ┣ 📜AccountEdit.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜AlarmList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜AlarmListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜MyYoutubeList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜MyYoutubeListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜PwConfirm.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜SearchBar.vue
- ┃ ┃ ┃ ┃ ┣ 📂Home
- ┃ ┃ ┃ ┃ ┃ ┣ 📂search
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchFollowingList.vue
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchFollowingListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchMoreFollowingList.vue
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SearchVideoListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedPopsList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedPopsListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginRequestMessage.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜NewsFeed.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜NewsFeedList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜NewsFeedListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜RelatedPopsList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜RelatedPopsListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜UploadForm.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeEditTool.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeVideo.vue
- ┃ ┃ ┃ ┃ ┣ 📂Interest
- ┃ ┃ ┃ ┃ ┃ ┣ 📜IdolChoiceList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜IdolChoiceListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜InterestProgress.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SongChoiceList.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜SongChoiceListItem.vue
- ┃ ┃ ┃ ┃ ┣ 📂Pops
- ┃ ┃ ┃ ┃ ┃ ┣ 📜LinkedPopsList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜LinkedPopsListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜PopsTypeList.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜PopsTypeListItem.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜windowTest.vue
- ┃ ┃ ┃ ┃ ┣ 📂Profile
- ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedInfo.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜MyPopsListItem.vue
- ┃ ┃ ┃ ┃ ┣ 📜BottomNavigationBar.vue
- ┃ ┃ ┃ ┃ ┣ 📜HelloWorld.vue
- ┃ ┃ ┃ ┃ ┗ 📜NavBar.vue
- ┃ ┃ ┃ ┣ 📂plugins
- ┃ ┃ ┃ ┃ ┗ 📜vuetify.js
- ┃ ┃ ┃ ┣ 📂router
- ┃ ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┃ ┣ 📂store
- ┃ ┃ ┃ ┃ ┣ 📂modules
- ┃ ┃ ┃ ┃ ┃ ┣ 📜account.js
- ┃ ┃ ┃ ┃ ┃ ┣ 📜dialog.js
- ┃ ┃ ┃ ┃ ┃ ┣ 📜home.js
- ┃ ┃ ┃ ┃ ┃ ┣ 📜myvideo.js
- ┃ ┃ ┃ ┃ ┃ ┣ 📜pops.js
- ┃ ┃ ┃ ┃ ┃ ┣ 📜profile.js
- ┃ ┃ ┃ ┃ ┃ ┗ 📜search.js
- ┃ ┃ ┃ ┃ ┗ 📜index.js
- ┃ ┃ ┃ ┣ 📂views
- ┃ ┃ ┃ ┃ ┣ 📂Account
- ┃ ┃ ┃ ┃ ┃ ┣ 📜FindPwView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SigninView.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜SignupView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Home
- ┃ ┃ ┃ ┃ ┃ ┣ 📜HomeView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchMoreFollowingView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchMorePopsView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchMoreYoutubeView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜SearchView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜YoutubeEditView.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜YoutubeView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Interest
- ┃ ┃ ┃ ┃ ┃ ┗ 📜InterestView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Make
- ┃ ┃ ┃ ┃ ┃ ┗ 📜MakeView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Nav
- ┃ ┃ ┃ ┃ ┃ ┣ 📜AccountView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜AlarmView.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜MyYoutubeView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Pops
- ┃ ┃ ┃ ┃ ┃ ┣ 📜OriginalLinkedPopsView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜PopsDetailView.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜PopsView.vue
- ┃ ┃ ┃ ┃ ┣ 📂Profile
- ┃ ┃ ┃ ┃ ┃ ┣ 📜FeedAddView.vue
- ┃ ┃ ┃ ┃ ┃ ┣ 📜PopsInFeedView.vue
- ┃ ┃ ┃ ┃ ┃ ┗ 📜ProfileEditView.vue
- ┃ ┃ ┃ ┃ ┗ 📜NotFoundView.vue
- ┃ ┃ ┃ ┣ 📜App.vue
- ┃ ┃ ┃ ┗ 📜main.js
- ┃ ┃ ┣ 📜.gitignore
- ┃ ┃ ┣ 📜babel.config.js
- ┃ ┃ ┣ 📜Dockerfile
- ┃ ┃ ┣ 📜jsconfig.json
- ┃ ┃ ┣ 📜package-lock.json
- ┃ ┃ ┣ 📜package.json
- ┃ ┃ ┣ 📜README.md
- ┃ ┃ ┗ 📜vue.config.js
- ┃ ┗ 📜README.md
- ┣ 📜.project
+ ┃ ┃ ┃ ┣ 📜App
  ┗ 📜README.md
+ 
 ```
 
 ## 주요기능
