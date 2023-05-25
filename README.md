@@ -6,17 +6,17 @@
 
 ## 🚩 목차 
 
-▪ [목표](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
+▪ [목표](https://github.com/FinanceProduct/final_pjt#-%EB%AA%A9%ED%91%9C) 
 
-▪ [설치 및 실행](https://github.com/FinanceProduct/final_pjt#%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%8B%A4%ED%96%89) 
+▪ [설치 및 실행](https://github.com/FinanceProduct/final_pjt#%EA%B0%9C%EB%B0%9C%EB%8B%A8%EA%B3%84) 
 
-▪ [ERD](https://github.com/FinanceProduct/final_pjt#erd) 
+▪ [ERD](https://github.com/FinanceProduct/final_pjt#-erd) 
 
-▪ [팀원소개](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
+▪ [API 설계](https://github.com/FinanceProduct/final_pjt#-api-%EC%84%A4%EA%B3%84) 
 
-▪ [팀원소개](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
+▪ [파일구조](https://github.com/FinanceProduct/final_pjt#-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%A1%B0) 
 
-▪ [팀원소개](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
+▪ [주요기능](https://github.com/FinanceProduct/final_pjt#-%EC%A3%BC%EC%9A%94%EA%B8%B0%EB%8A%A5) 
 
 ▪ [팀원소개](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
 ▪ [팀원소개](https://github.com/FinanceProduct/final_pjt#-%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C) 
