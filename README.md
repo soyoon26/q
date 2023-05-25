@@ -57,18 +57,6 @@
 | POST | `<int:board_pk>/comment/` | 댓글 생성 |
 | DELETE, PUT | `<int:board_pk>/comment/<int:comment_pk>/` | 댓글 수정/삭제 |
 
-##### bank app
-
-| HTTP method | URL Pattern | function |
-| --- | --- | --- |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-|     |     |     |
-
 ##### exchange app
 
 | HTTP method | URL Pattern | function |
