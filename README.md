@@ -30,7 +30,7 @@
 
 #### ERD
 
-draw.io 쓰면 된다네요
+![image](https://github.com/FinanceProduct/final_pjt/assets/122415737/45f544d4-6877-4656-a52a-fdcfad0e335d)
 
 #### API 설계
 
