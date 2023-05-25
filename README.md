@@ -53,10 +53,67 @@
 <br>
 
 ## 🛠 사용한 기술스택
+<br>
+ 
+ #### ◾ 언어
+<br>
+ <table>
+    <tbody>
+        <tr>
+            <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png" width="100" height="100"></td>
+            <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" width="100" height="70"></td>
+            <td align="center"><img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png" width="70" height="100"></td>
+        </tr>
+        <tr>
+            <td align="center">Javascript</td>
+            <td align="center">CSS</td>
+           <td align="center">HTML5</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+ 
+ #### ◾ 프레임워크
+ 
+<br>
+ 
+ <table>
+    <tbody>
+        <tr>
+            <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/220px-Vue.js_Logo_2.svg.png" width="100" height="100"</td>
+           <td align="center"><img src="https://github.com/FinanceProduct/final_pjt/assets/122415737/1dfa7af6-1ce1-4356-843f-555792ac88b3" width="100" height="100"></td>
+        </tr>
+        <tr>
+            <td align="center">Vue.js</td>
+           <td align="center">Django</td>
+          
+        </tr>
+    </tbody>
+</table>
+
+ <br>
+ 
+ #### ◾ 협업툴
+ 
+ <br>
+
+ <table>
+    <tbody>
+        <tr>
+            <td align="center"><img src="https://github.com/FinanceProduct/final_pjt/assets/122415737/2c00aafe-e3ab-4b33-bd34-288e90336955" width="100" height="100"></td>
+           <td align="center"><img src="https://github.com/FinanceProduct/final_pjt/assets/122415737/16d2fe67-988a-44f9-a742-dcf5a61c0c80" width="100" height="100"></td>
+        </tr>
+        <tr>
+            <td align="center">Mattermost</td>
+           <td align="center">Git</td>
+        </tr>
+    </tbody>
+</table>
 
 
-
-
+ <br>
+ <br>
 
 ## 💻 설치 및 실행
 
@@ -113,12 +170,6 @@
   <br>
 
 
-#### 와이어프레임
-
-와이어 프레임 들어갈 공간
-
-  <br>
-    <br>
 
 
 ## 💻 ERD
