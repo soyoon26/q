@@ -1,10 +1,10 @@
 ![그림1](https://github.com/FinanceProduct/final_pjt/assets/116616569/95aa40db-b979-45c3-99f2-a580ca1776bb)
 
-## Mission
+## 🚩 목표
 
 해외에서의 국내 은행 이용 편의성 제공
 
-## 🚩 목차 
+## 📁 목차 
 
 ▪ [목표](https://github.com/FinanceProduct/final_pjt#-%EB%AA%A9%ED%91%9C) 
 
@@ -26,7 +26,7 @@
    
 
 
-## ✔ 목표
+## ✔ 기대효과
 
 - 해외에서도 손쉽게 국내 은행을 찾을 수 있다
   
@@ -40,7 +40,6 @@
 ## 📋 개발단계
 
 
-
 #### 개발기간
 
 5/17 ~ 5/25
@@ -51,6 +50,9 @@
 
 
 ##### 아키텍처
+
+
+
 
 ## 💻 설치 및 실행
 
@@ -92,25 +94,33 @@
 - ```
  `./final_pjt_front`
 
-
   npm install
   npm을 이용하여 필요한 패키지 설치
   
   npm run serve
   웹팩 개발 서버 구동
- 
+-``` 
+
 
 #### 와이어프레임
 
 와이어 프레임 들어갈 공간
 
+
+
+
 ## 💻 ERD
 
 ![image](https://github.com/FinanceProduct/final_pjt/assets/122415737/45f544d4-6877-4656-a52a-fdcfad0e335d)
 
+
+
+
+
 ## 💻 API 설계
 
-#### main project
+
+#### ▪ main project
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -121,7 +131,7 @@
 | -   | `exchange/` | exchange.urls |
 | -   | `products/` | products.urls |
 
-#### boards app
+#### ▪ boards app
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -133,14 +143,14 @@
 | POST | `<int:board_pk>/comment/` | 댓글 생성 |
 | DELETE, PUT | `<int:board_pk>/comment/<int:comment_pk>/` | 댓글 수정/삭제 |
 
-#### exchange app
+#### ▪ exchange app
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
 | GET | `calculate/` | 환율 조회 |
 
 
-#### products app
+#### ▪ products app
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -158,6 +168,7 @@
 
 
 ## 💻 파일 구조
+
 
 ```
 📦final_pjt_back
@@ -207,9 +218,12 @@
  
 ```
 
+
+
 ## 🎈 주요기능
 
-### 메인 페이지
+
+### ▪ 메인 페이지
 
 ![home](https://github.com/FinanceProduct/final_pjt/assets/122415737/730301b5-ffb5-4479-874c-6ad5348cc187)
 
@@ -217,7 +231,7 @@
 
 상단의 네비게이션 바와 본문의 사진을 통해 원하는 기능으로 이동할 수 있습니다.
 
-### 주변 은행 찾기
+### ▪ 주변 은행 찾기
 
 ![kakaomap](https://github.com/FinanceProduct/final_pjt/assets/122415737/17fb94a9-35be-4d20-b8c4-06cda832aa73)
 
@@ -225,7 +239,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 선택한 은행을 로그인한 구글 계정에 저장할 수 있습니다.
 
-### 금융상품
+### ▪ 금융상품
 
 ![products_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/bcd42fa0-f0a7-4fc5-ab07-3d47e2acc5d9)
 
@@ -238,11 +252,11 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
 
 
-### 환율계산기
+### ▪ 환율계산기
 
 ![exchange](https://github.com/FinanceProduct/final_pjt/assets/122415737/6557a5bd-9b05-46c3-a108-60f6d33a63a9)
 
-### 커뮤니티
+### ▪ 커뮤니티
 
 ![article_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/e122c8fb-47b9-4c5f-9225-e1d78af2cf65)
 
@@ -262,7 +276,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 자신이 작성한 글을 수정및 삭제할 수 있습니다.
 
-### 회원
+### ▪ 회원
 
 ![login_logout](https://github.com/FinanceProduct/final_pjt/assets/122415737/28d534c5-bc59-4c9d-ab41-a7b9c2480996)
 
@@ -273,6 +287,8 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 내가 즐겨찾기 한 상품, 내가 쓴 글과 댓글을 확인할 수 있습니다.
 
 ---
+
+
 
 ## 협업과정
 
