@@ -203,7 +203,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 국내 은행의 예금과 적금 상품을 비교할 수 있습니다.
 
-원하는 은행별로, 금리 순으로 상품을 확인할 수 있습니다.
+원하는 은행별로 상품을 확인할 수 있습니다.
 
 ![product_detail](https://github.com/FinanceProduct/final_pjt/assets/122415737/122aa194-2697-4fe5-9d05-ad41f1c8ed96)
 
@@ -230,7 +230,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 로그인한 회원에 한해 게시글을 작성할 수 있습니다.
 
 
-
+![article_edit_delete](https://github.com/FinanceProduct/final_pjt/assets/122415737/b0ecc049-3be8-440d-bd8a-4f5a3b9c6e53)
 
 자신이 작성한 글을 수정및 삭제할 수 있습니다.
 
@@ -240,7 +240,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 일반 계정 혹은 구글 계정을 통해 회원가입 및 로그인이 가능합니다.
 
----프로필 화면---
+![profile](https://github.com/FinanceProduct/final_pjt/assets/122415737/b4bc1025-7215-4f31-9280-9cbee01284fa)
 
 내가 즐겨찾기 한 상품, 내가 쓴 글과 댓글을 확인할 수 있습니다.
 
