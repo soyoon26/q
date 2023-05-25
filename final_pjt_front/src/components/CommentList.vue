@@ -1,11 +1,14 @@
 <template>
   <div>
     <h3>댓글 목록</h3>
-      <div>
+    <div v-if="filteredComments.length === 0">
+      생성된 댓글이 없습니다.
+    </div>
+    <div v-else>
       <CommentListItem
-      v-for="comment in filteredComments"
-      :key="comment.id"
-      :comment="comment"
+        v-for="comment in filteredComments"
+        :key="comment.id"
+        :comment="comment"
       />
       </div>
   </div>
@@ -24,7 +27,7 @@ export default {
     },
     computed: {
     comments() {
-      return this.$store.state.comments; // state에서 comments 데이터 가져오기
+      return this.$store.state.comments || []; // state에서 comments 데이터 가져오기
     },
     filteredComments() {
       console.log('나를감시하는저스폿스폿스폿라잇');

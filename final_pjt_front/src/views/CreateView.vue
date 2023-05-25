@@ -51,6 +51,7 @@ export default {
         this.$store.dispatch('createArticle', { title, content })
           .then((response) => {
             console.log('밑에 확인')
+            alert('글 작성이 완료되었습니다.')
             console.log(response)
             console.log('글생성하면 어디로 이동하냐 ? ')
             const createdArticleId = response.data.id;
