@@ -199,13 +199,13 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 #### 금융상품
 
----대충 금융상품 목록---
+![products_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/bcd42fa0-f0a7-4fc5-ab07-3d47e2acc5d9)
 
 국내 은행의 예금과 적금 상품을 비교할 수 있습니다.
 
 원하는 은행별로, 금리 순으로 상품을 확인할 수 있습니다.
 
----금융상품 상세 페이지---
+![product_detail](https://github.com/FinanceProduct/final_pjt/assets/122415737/122aa194-2697-4fe5-9d05-ad41f1c8ed96)
 
 관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
 
