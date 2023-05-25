@@ -25,7 +25,7 @@
    
 
 
-## Vision
+## ✔ 목표
 
 - 해외에서도 손쉽게 국내 은행을 찾을 수 있다
   
@@ -36,7 +36,7 @@
 - 은행의 정보와 업무에 대해 다른 사람들과 소통할 수 있다
   
 
-## 개발단계
+## 📋개발단계
 
 
 
@@ -51,10 +51,10 @@
 
 ##### 아키텍처
 
-## 설치 및 실행
+## 💻 설치 및 실행
 
 
-##### 백엔드
+#### 백엔드
 
 
 1. 기본 실행
@@ -86,7 +86,7 @@
 
 
 
-##### 프론트엔드
+#### 프론트엔드
 
 - ```
 - `./final_pjt_front`
@@ -103,13 +103,13 @@
 
 와이어 프레임 들어갈 공간
 
-#### ERD
+## 💻 ERD
 
 ![image](https://github.com/FinanceProduct/final_pjt/assets/122415737/45f544d4-6877-4656-a52a-fdcfad0e335d)
 
-#### API 설계
+## 💻 API 설계
 
-##### main project
+#### main project
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -120,7 +120,7 @@
 | -   | `exchange/` | exchange.urls |
 | -   | `products/` | products.urls |
 
-##### boards app
+#### boards app
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -132,7 +132,7 @@
 | POST | `<int:board_pk>/comment/` | 댓글 생성 |
 | DELETE, PUT | `<int:board_pk>/comment/<int:comment_pk>/` | 댓글 수정/삭제 |
 
-##### exchange app
+#### exchange app
 
 | HTTP method | URL Pattern | function |
 | --- | --- | --- |
@@ -152,7 +152,11 @@
 | GET | `deposit-products/top-rate/` | 최고금리조회 |
 | POST | `<int:product_pk>/subscription/` | 상품 즐겨찾기 |   
 | GET | `subscribed-products/` | 유저별 구독 상품 |
-#### 파일 구조
+
+
+
+
+## 💻 파일 구조
 
 ```
 📦final_pjt_back
@@ -202,9 +206,9 @@
  
 ```
 
-## 주요기능
+## 🎈 주요기능
 
-#### 메인 페이지
+### 메인 페이지
 
 ![home](https://github.com/FinanceProduct/final_pjt/assets/122415737/730301b5-ffb5-4479-874c-6ad5348cc187)
 
@@ -212,7 +216,7 @@
 
 상단의 네비게이션 바와 본문의 사진을 통해 원하는 기능으로 이동할 수 있습니다.
 
-#### 주변 은행 찾기
+### 주변 은행 찾기
 
 ![kakaomap](https://github.com/FinanceProduct/final_pjt/assets/122415737/17fb94a9-35be-4d20-b8c4-06cda832aa73)
 
@@ -220,7 +224,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 선택한 은행을 로그인한 구글 계정에 저장할 수 있습니다.
 
-#### 금융상품
+### 금융상품
 
 ![products_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/bcd42fa0-f0a7-4fc5-ab07-3d47e2acc5d9)
 
@@ -233,11 +237,11 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 관심있는 상품의 상세정보를 확인하고 즐겨찾기에 추가할 수 있습니다.
 
 
-#### 환율계산기
+### 환율계산기
 
 ![exchange](https://github.com/FinanceProduct/final_pjt/assets/122415737/6557a5bd-9b05-46c3-a108-60f6d33a63a9)
 
-#### 커뮤니티
+### 커뮤니티
 
 ![article_list](https://github.com/FinanceProduct/final_pjt/assets/122415737/e122c8fb-47b9-4c5f-9225-e1d78af2cf65)
 
@@ -257,7 +261,7 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 자신이 작성한 글을 수정및 삭제할 수 있습니다.
 
-#### 회원
+### 회원
 
 ![login_logout](https://github.com/FinanceProduct/final_pjt/assets/122415737/28d534c5-bc59-4c9d-ab41-a7b9c2480996)
 
@@ -284,6 +288,6 @@ Google Map에서 나의 현재 위치 혹은 원하는 위치에 있는 국내 �
 
 대충...........노션 캘린더에 작성하면 ㄱㅊ할듯ㄱ
 
-## 회고
+## 📽 회고
 
 백엔드를 주로 맡아서 진행했지만 프론트엔드 작업도 병행하다보니 원래 부족했던 프론트 지식을 몸으로 부딪히며 배웠고 연동하는 과정이 재밌어 풀스택 개발에 흥미를 가지게 되었다. 왜 직렬화를 하고 왜 데이터 모델링을 하는지 등 개발 지식이 머릿속에 떠다니기만 하는 상태에서 시작했지만 프로젝트를 진행하며 이 지식이 왜, 어떻게 쓰여야 하는지를 고민하면서 더 나은 개발자가 되기 위한 방향성에 대해서도 생각할 수 있는 기회였다. 소셜 로그인이나 배포 등 보안과 네트워크, 소프트웨어에 대한 지식이 부족한 상태에서 맨땅에 헤딩하려니 힘든 점이 많았고 결국 구현하지 못한 기능들에 대해서는 아쉬움이 많이 남았다. 웹 개발과 꽤 친숙해진 만큼 다음 프로젝트에서는 좀 더 많은 준비를 해서 욕심을 부려 만족할만한 결과물을 내보고 싶다.
