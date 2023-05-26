@@ -199,7 +199,6 @@
 | --- | --- | --- |
 | -   | `admin/` | admin.site.urls |
 | -   | `boards/` | boards.urls |
-| -   | `accounts/signup/` | dj_rest_auth.registration.urls |
 | -   | `accounts/` | dj_rest_auth.urls |
 | -   | `exchange/` | exchange.urls |
 | -   | `products/` | products.urls |
