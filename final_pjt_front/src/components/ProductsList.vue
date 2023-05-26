@@ -84,7 +84,6 @@ export default {
   },
   methods: {
     getOptions() {
-      console.log('옵션 dispatch 시작함다 ㅋ');
       this.$store.dispatch('getOptions'); // finCoNo를 매개변수로 전달
     },
     getUniqueOptionsByFinPrdtCd(finPrdtCd) {

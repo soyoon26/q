@@ -51,23 +51,13 @@
               console.log(res)
               this.product = res.data
               this.$store.state.productId = this.product.id
-              console.log('상품ID',this.$store.state.productId)
           })
           .catch((err) => {
               console.log(err)
           })
           },
           checkSubscription() {
-            console.log('체크합니다-.-')
             this.$store.dispatch('checkSub')
-            // const cfg = {
-            // headers: {
-            // 'Content-Type': 'application/json',
-            // 'Authorization': `Token ${this.$store.state.token}`,
-            //     },
-            // }
-            // axios.get(`${API_URL}/products/subscribed-products/`, null, cfg)
-
             },
           forSubscription() {
             const Config = {
@@ -78,12 +68,9 @@
             };
             axios.post(`${API_URL}/products/${this.$route.params.id}/subscription/`, null, Config)
             .then((res) => {
-                console.log('이게 왜안나옴?')
-              console.log(res.data.message) //가입메세지  
               alert(res.data.message);
               this.checkSubscription()
               this.isSubscribed = !this.isSubscribed;
-              console.log('다시 확인')
             })
           },
       }

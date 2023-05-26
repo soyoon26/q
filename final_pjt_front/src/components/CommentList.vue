@@ -27,13 +27,10 @@ export default {
     },
     computed: {
     comments() {
-      return this.$store.state.comments || []; // state에서 comments 데이터 가져오기
+      return this.$store.state.comments || []; 
     },
     filteredComments() {
-      console.log('나를감시하는저스폿스폿스폿라잇');
-      console.log(this.boardId);
       return this.comments.filter(comment => {
-        console.log('같아야댐', comment.board);
         return comment.board === parseInt(this.boardId);
       });
     },

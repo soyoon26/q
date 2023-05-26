@@ -5,7 +5,7 @@
     :key="article.id"
     :article="article"   
     />
-    <!-- state에서 articles데이터 가져오기 pass props -->
+
 
   </div>
 </template>

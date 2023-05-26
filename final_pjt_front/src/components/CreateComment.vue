@@ -29,8 +29,6 @@ export default {
     submitComment(event) {
       if (this.$store.state.isLogin) {
       const content = this.content
-      console.log('댓글 등록:', this.content);
-      console.log(this.$route.params.id)
       this.$store.dispatch('submitComment',{
       article_id: this.$route.params.id,
       content: content

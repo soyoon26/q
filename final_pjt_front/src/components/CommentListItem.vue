@@ -62,24 +62,17 @@
             }
           )
           .then((res) => {
-            console.log(res);
-            console.log('댓글이 수정됨');
             this.isEditMode = false;
             this.$store.dispatch('updateComments');
           })
           .catch((err) => {
             console.log(err);
-            console.log('댓글 수정 중 에러 발생');
           });
       },
       cancelEdit() {
         this.isEditMode = false;
       },
       deleteComment() {
-        console.log(this.comment.id);
-        console.log('이게떠야댐 !!!!');
-        console.log(this.comment.board);
-  
         console.log(
           `${API_URL}/boards/${this.comment.board}/comment/${this.comment.id}`
         );
@@ -93,13 +86,10 @@
             }
           )
           .then((res) => {
-            console.log(res);
-            console.log('댓글이 삭제됨');
             this.$store.dispatch('updateComments');
           })
           .catch((err) => {
             console.log(err);
-            console.log('댓글 지우려다가 에러남');
           });
       },
     },

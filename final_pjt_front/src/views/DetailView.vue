@@ -26,7 +26,6 @@
 
 <script>
 import axios from 'axios';
-// import Comment from '@/views/Comment.vue'
 import Comment from './Comment.vue';
 const API_URL = 'http://127.0.0.1:8000';
 
@@ -35,7 +34,7 @@ export default {
   data() {
     return {
       boards: null,
-      boardId: this.$route.params.id //자식에게 전해줄 데이터 지정
+      boardId: this.$route.params.id 
     };
   },
   mounted() {
@@ -47,9 +46,6 @@ export default {
         axios.get(`${API_URL}/boards/${this.boardId}/`)
           .then(response => {
             this.boards = response.data;
-            console.log(response.data);
-            console.log('밑에는');
-            console.log(this.boards);
           })
           .catch(error => {
             console.error(error);
@@ -65,7 +61,6 @@ export default {
           content: this.boards.content, // 수정할 내용 데이터
         },
       });
-      console.log('수정페이지로 이동')
     },
     deleteBoard() {
       axios.delete(`${API_URL}/boards/${this.$route.params.id}/edit/`, {
@@ -74,10 +69,6 @@ export default {
         }
       })
       .then((res) => {
-        console.log(res);
-        console.log('d-1')
-        console.log(this.$route.params.id)
-        console.log('삭제됨');
         this.$store.commit('REMOVE_BOARD', this.$route.params.id);
     
         this.$router.push({ name: 'ArticleView' }); 

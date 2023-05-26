@@ -55,13 +55,11 @@ export default {
     async fetchExchangeRates() {
       try {
         const response = await axios.get('http://127.0.0.1:8000/exchange/calculate/');
-        this.countries = response.data; // 환율 정보를 countries 배열에 할당
-      } catch (error) {
+        this.countries = response.data; 
         console.error('환율 정보를 가져오는 도중 오류가 발생했습니다:', error);
       }
     },
     calculateExchange() {
-      // 선택한 나라 1, 나라 2, 금액으로 환율 계산
       const country1 = this.selectedCountry1;
       const country2 = this.selectedCountry2;
       const amount = this.amount;
@@ -69,7 +67,6 @@ export default {
       console.log(country1)
       console.log(country2)
       console.log(amount)
-      // 선택한 나라 1, 나라 2의 환율 정보 가져오기 통화코드가 같으면 
       const rate1 = this.countries.find(country => country.cur_unit === country1);
       const rate2 = this.countries.find(country => country.cur_unit === country2);
       console.log(parseFloat(rate2.deal_bas_r))
@@ -79,7 +76,6 @@ export default {
       console.log('도랏나')
       console.log(1,332.7)
 
-      // 환율 계산
       if (rate1 && rate2 && amount) {
         const exchangeRate = parseFloat(rate1.deal_bas_r.replace(/,/g, '')) / parseFloat(rate2.deal_bas_r.replace(/,/g, ''));
         console.log('뭐임')

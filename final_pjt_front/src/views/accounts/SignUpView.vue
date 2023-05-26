@@ -27,9 +27,6 @@
 </template>
 
 <script>
-// import { throws } from 'assert'
-// import axios from 'axios'
-// const API_URL = 'http://127.0.0.1:8000'
 
 
 export default {
@@ -52,34 +49,11 @@ export default {
       }
 
       this.$store.dispatch('signup',payload)
-      // axios({
-      // })
+ 
     }
   }
   }
-      //   method: 'post',
-      //   url: `${API_URL}/accounts/signup/`,
-      //   data: {username, password1, password2},
-      // })
-      //   .then(() => {
-      //     this.$router.push({ name: 'App'})
-      //   })
-      //   .catch(err => {
-      //     if (err.response.data.username) {
-      //       alert(err.response.data.username)
-      //     } else if (err.response.data.error) {
-      //       alert(err.response.data.error)
-      //     } else {
-      //       console.log('확인 필요')
-      //     }
-      //     this.password1 = null
-      //     this.password2 = null
-  //     const payload = {
-  //       username, password1, password2
-  //     }
-  //     console.log(payload)
-  //     this.$store.dispatch('signup',payload)
-  //   }
+
 
 </script>
 

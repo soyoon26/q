@@ -50,9 +50,6 @@ export default {
         },
       })
       .then((response) => {
-        console.log('여기는 됨?');
-        console.log(response.data);
-        console.log(this.requestData)
         this.isAuthorized = this.checkAuthorization(response.data.author_name);
       })
       .catch((error) => {
@@ -72,7 +69,6 @@ export default {
           },
         })
         .then((response) => {
-          console.log('수정 완료', response);
           this.form.title = response.data.title; // 수정된 내용으로 업데이트
           this.form.content = response.data.content;
           this.$router.push(`/${this.$route.params.id}`)

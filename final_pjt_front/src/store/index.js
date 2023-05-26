@@ -43,25 +43,18 @@ export default new Vuex.Store({
       if (index !== -1) {
         state.articles.splice(index, 1);
       }
-      console.log('제발삭제되게해줘요')
     },
     GET_PRODUCTS(state, products) {
-      console.log('data전달')
       state.products = products
     },
     GET_OPTIONS(state, options) {
-      console.log('options 전달mutations까지 완료 ㅋㅋ')
       state.options = options
-      console.log(options)
-      console.log('zz뷰 다털렷죠? ')
     },
     GET_ARTICLES(state, articles) {
-      state.articles = articles // 받아온 데이터 state에 저장
+      state.articles = articles 
     },
     ADD_ARTICLE(state, article) {
       state.articles.push(article)
-      // console.log('어디로이동할건지비밀임')
-      // router.push({name : 'DetailView'})
     },
     ADD_COMMENT(state, comment) {
       state.comments.push(comment)
@@ -69,15 +62,7 @@ export default new Vuex.Store({
     SET_COMMENTS(state, comments) {
       state.comments = comments
       console.log(state.comments)
-    }, // 댓글 목록 업데이트 반영하기
-    // signup & login -> 완료하면 토큰 발급
-    // SIGN_UP(state, token) {
-    //   state.token = localStorage.getItem('jwt1')
-    //   console.log(state.token,'이게 나와야 됨')
-    //   state.isLogin = true
-    //   state.username = username.value
-    //   router.push({ name: 'App' })
-    // },
+    }, 
     SIGN_UP(state, token) {
       state.token = token; // 가져온 토큰을 state.token에 저장
       console.log(state.token, '이게 나와야 됨');
@@ -97,41 +82,26 @@ export default new Vuex.Store({
       state.username = payload.username
       console.log(state.token)
       localStorage.setItem('jwt', state.token) // 이걸 저장
-      // state.token = localStorage.getItem('jwt')
       state.isLogin = true
-      // state.user_id = payload.user_id
-      // state.username = payload.username.value
-      console.log(state.token)
-      console.log(state.username, '썅 ㅋㅋ')
-      router.push({ name: 'home' }) // store/index.js $router 접근 불가 -> import를 해야함
-      console.log(this.isLogin,'로그인됐는지, 여기가 마지막?')
-      // this.$cookies.set('token', token)
+      router.push({ name: 'home' }) 
     },
     SET_SUB_STATUS(state, isSub) {
       state.isSub = isSub;
-      console.log(state.isSub,'제발한번만나오게해줘')
     },
-    // SET_USER_SUB_STATUS(state, isSubscribed) {
-    //   state.user.isSubscribed = isSubscribed;
-    // },
     SAVE_USERID(state, userid) {
       state.userid = userid;
-      console.log(userid)
-      console.log('나에게과분한페어')
     },
     REMOVE_BOARD(state, boardforId) {
       const index = state.articles.findIndex(article => article.id === boardforId);
       if (index !== -1) {
         state.articles.splice(index, 1);
       }
-      console.log('짜장면나오는날')
       alert('글 삭제가 완료되었습니다.')
       console.log(state.aricles)
     },
   },
   actions: {
     checkSub({ commit, state }) {
-      console.log('안나올시자결',state.token)
       const ut = {
         headers: {
           'Content-Type': 'application/json',
@@ -141,26 +111,14 @@ export default new Vuex.Store({
       return axios
         .get(`${API_URL}/products/subscribed-products/`,ut)
         .then((response) => {
-          console.log('구독확인하러감')
-          console.log(response)
-          console.log('이제부터진짜')
           const ids = response.data.map((item) => item.id);
-          console.log(ids);
-          // if (response.status === 200) {
-          //   context.commit('SET_SUB_STATUS', true);
-          //   context.commit('SET_USER_SUB_STATUS', true);
-          // }
-          const productIdCheck = state.productId; // 상태에서 productId 가져오기
+          const productIdCheck = state.productId; 
           
       if (ids.includes(productIdCheck)) {
-        commit('SET_SUB_STATUS', true); // productId가 존재할 경우 isSub을 True로 변경
+        commit('SET_SUB_STATUS', true); 
       } else {
-        commit('SET_SUB_STATUS', false); // productId가 존재하지 않을 경우 isSub을 False로 변경
+        commit('SET_SUB_STATUS', false); 
       }
-      
-      // if (response.status === 200) {
-      //   context.commit('SET_USER_SUB_STATUS', true);
-      // }
     })
     .catch((error) => {
       console.log(error);
@@ -171,12 +129,8 @@ export default new Vuex.Store({
       axios({
         method: 'get',
         url: `${API_URL}/boards/`, // 요청보낼 경로 확인
-        // headers : {
-        //   Authorization : `Token ${ context.state.token }`
-        // }
       })
         .then((res) => {
-          // console.log(res, context)
           context.commit('GET_ARTICLES', res.data)
         })
         .catch((err) => {
@@ -195,18 +149,16 @@ export default new Vuex.Store({
         axios.post(`${API_URL}/boards/create/`, articleData, config)
           .then(response => {
             commit('ADD_ARTICLE', response.data)
-            resolve(response) // 비동기 작업 완료 후 성공 결과 전달
+            resolve(response) 
           })
           .catch(error => {
-            console.log('글 생성 에러')
             console.error(error)
-            reject(error) // 비동기 작업 중 실패한 경우 에러 전달
+            reject(error) 
           })
       })
     },
 
     submitComment({ commit, state }, { article_id, content }) {
-      // 토큰 값을 헤더에 추가하여 API 요청을 보냅니다.
       const config = {
         headers: {
           'Content-Type': 'application/json',
@@ -215,49 +167,40 @@ export default new Vuex.Store({
       };
 
       const data = {
-        content: content, // 요청 데이터를 딕셔너리 형식으로 구성
+        content: content, 
       };
 
       axios.post(`${API_URL}/boards/${article_id}/comment/`, JSON.stringify(data), config)
         .then(response => {
           commit('ADD_COMMENT', response.data)
           console.log(response.data)
-          console.log('한번만 ㅜㅜ')
         })
         .catch(error => {
           console.log(error)
         })
     },
     updateComments({ commit, state }) {
-      console.log('여기까지는 왓다')
-      axios.get(`${API_URL}/boards/comments/`, { // 주소 변경해야 함
+      axios.get(`${API_URL}/boards/comments/`, { 
         headers: {
           'Authorization': `Token ${state.token}`,
         },
         
       })
         .then((res) => {
-          console.log('범상치않은 인물')
           commit('SET_COMMENTS', res.data)
           console.log(res.data)
         })
         .catch((err) => {
           console.log(err)
-          console.log('범인')
           state.comments= []
-          console.log(state.comments,'마지막 . . ')
         })
     },
     getProducts(context) {
-      console.log('actions도착')
       axios({
         method: 'get',
         url: `${API_URL}/products/deposit-products/`,
       })
         .then((res) => {
-          console.log(res, context)
-          console.log('아금리왤케 ㅜ ')
-          console.log(res.data)
           context.commit('GET_PRODUCTS', res.data)
         })
         .catch((err) => {
@@ -265,15 +208,11 @@ export default new Vuex.Store({
         })
     },
     getOptions(context) {
-      console.log('옵션 actions도착');
-      console.log(`${API_URL}/products/deposit-options/`);
-      
       axios({
         method: 'get',
         url: `${API_URL}/products/deposit-options/`,
       })
         .then((res) => {
-          console.log(res);
           context.commit('GET_OPTIONS', res.data)
         })
         .catch((err) => {
@@ -296,7 +235,6 @@ export default new Vuex.Store({
         },
       })
         .then((res) => {
-          console.log(res);
           commit('SIGN_UP', res.data.key);
     
           const userToken = {
@@ -309,8 +247,6 @@ export default new Vuex.Store({
           return axios
             .get(`${API_URL}/accounts/user/`, userToken)
             .then((res) => {
-              console.log(res);
-              // Extract userId from the response data based on its structure
               const userId = res.data.pk;
               commit('SAVE_USERID', userId);
             })
@@ -319,8 +255,6 @@ export default new Vuex.Store({
             });
         })
         .catch((err) => {
-          console.log(err);
-          console.log('회원가입 오류');
           alert('유효한 아이디와 비밀번호를 넣어주세요');
         });
     },
@@ -328,8 +262,6 @@ export default new Vuex.Store({
       const userid = payload.userid;
       const username = payload.username;
       const password = payload.password;
-      console.log(userid, 'userid 출력');
-      console.log(username);
       axios({
         method: 'post',
         url: `${API_URL}/accounts/login/`,
@@ -340,7 +272,6 @@ export default new Vuex.Store({
         },
       })
         .then((res) => {
-          console.log('이게 진짜', res.data);
           const token = res.data.key;
           commit('SAVE_TOKEN', { token, username });
           console.log(username);
@@ -353,8 +284,6 @@ export default new Vuex.Store({
           return axios
             .get(`${API_URL}/accounts/user/`, userToken)
             .then((res) => {
-              console.log(res)
-              console.log('화수목힘내좌',res.data.pk)
               const userId = res.data.pk;
               commit('SAVE_USERID', userId);
             })
@@ -363,7 +292,6 @@ export default new Vuex.Store({
             });
         })
         .catch((err) => {
-          console.log(err);
           alert('아이디와 비밀번호를 확인하세요.');
         });
     },
@@ -375,8 +303,6 @@ export default new Vuex.Store({
     },
     subscribeProduct(context) {
       const state = context.state; // 상태 객체에 접근
-      console.log(state.token)
-      console.log('도착',`${API_URL}/products/${state.productId}/subscription/`);
       const usertoken = {
         headers: {
           'Content-Type': 'application/json',
@@ -386,8 +312,6 @@ export default new Vuex.Store({
       return axios
         .post(`${API_URL}/products/${state.productId}/subscription/`,null,usertoken)
         .then((response) => {
-          console.log('여기가 중간')
-          console.log(response)
           if (response.status === 200) {
             context.commit('SET_SUB_STATUS', true);
             context.commit('SET_USER_SUB_STATUS', true);
@@ -398,9 +322,7 @@ export default new Vuex.Store({
         });
     },
     cancelSubscription(context) {
-      console.log('취소store넘어옴')
-      console.log(context.state)
-      const state = context.state; // 상태 객체에 접근
+      const state = context.state;
       
       return axios
         .post(`${API_URL}/products/${state.productId}/subscription/`)

@@ -25,7 +25,7 @@ export default {
     },
     computed:{
     isLogin() {
-      return this.$store.getters.isLogin // 로그인 여부
+      return this.$store.getters.isLogin 
     }
   },
   created() {
@@ -37,14 +37,13 @@ export default {
       alert('로그인이 필요합니다.');
     },
     getArticles() {
-      console.log(this.$store.state.username,"야 나한테 이러지마")
       if (this.$store.state.username !== null) {
         this.$store.dispatch('getArticles');
         } else {
       alert('로그인이 필요합니다.');
       this.$router.push({ name: 'LogInView' });
 }
-    } // 위에가 create에 되어 있어야 함
+    } 
   }
 }
 </script>

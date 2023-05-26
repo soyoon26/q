@@ -20,9 +20,6 @@
 
 <script>
 
-// import KakaoView from '@/views/login/KakaoView'
-
-
 export default {
   name: 'LoginView',
   data() {
